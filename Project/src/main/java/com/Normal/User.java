@@ -2,7 +2,7 @@ package com.Normal;
 
 public class User {
     private String firstName;
-private String lastNam;
+private String lastName;
 private String username;
 private String password;
 private String email;
