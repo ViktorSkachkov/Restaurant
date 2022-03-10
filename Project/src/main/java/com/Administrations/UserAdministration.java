@@ -6,6 +6,6 @@ public class UserAdministration {
         return true;
     }
     public void deleteUser(User user) {
-        
+
     }
 }
