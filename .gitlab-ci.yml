@@ -12,6 +12,6 @@ build:
 test:
   stage: test
   script:
-    - cd Project
+    - cd Project/demo
     - ./gradlew test
     - ./gradlew.bat --stop
