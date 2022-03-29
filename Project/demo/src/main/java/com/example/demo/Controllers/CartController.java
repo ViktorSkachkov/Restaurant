@@ -20,5 +20,4 @@ public class CartController {
     public List<OrderedMeal> GetCart() {
         return  orderedMeals;
     }
-    /*oliuyhtrthgy*/
 }
