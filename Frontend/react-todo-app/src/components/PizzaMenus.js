@@ -1,29 +1,27 @@
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import MenuList from  "./MenuList";
-import axios from "axios";
-import {useEffect, useState} from "react";
+import PizzaMenuList from "./PizzaMenuList";
+import {useNavigate} from "react-router-dom";
 
 
 function PizzaMenus() {
-        return (
+    let navigate = useNavigate();
+    return (
 
-            <>
-                <Navbar/>
-                <br/>
-                <div className="backLine">
-                    <button>Go Back</button>
-                </div>
-                <h2 className="menuTitle">Pizza</h2>
-                <div className="menuList">
-                    <center>
-                        <MenuList
+        <>
+            <br/>
+            <div className="backLine">
+                <button onClick={() => {
+                    navigate("/menus");
+                }}>Go Back</button>
+            </div>
+            <h2 className="menuTitle">Pizza</h2>
+            <div className="menuList">
+                <center>
+                    <PizzaMenuList
 
-                        />
-                    </center>
-                </div>
-                <Footer/>
-            </>
-        )
+                    />
+                </center>
+            </div>
+        </>
+    )
 }
 export default PizzaMenus

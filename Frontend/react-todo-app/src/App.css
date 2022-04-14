@@ -147,3 +147,109 @@
   text-align: center;
   font-size: 20px;
 }
+
+/*Log in*/
+.formLabelUsername {
+  padding-right: 6.5rem;
+}
+.formLabelPassword {
+  padding-right: 6.5rem;
+}
+.formLabelFirstName {
+  padding-right: 6rem;
+}
+.formLabelLastName {
+  padding-right: 6rem;
+}
+.formLabelEmail {
+  padding-right: 8rem;
+}
+.formLabelAddress {
+  padding-right: 7rem;
+}
+.formLabelPhoneNumber {
+  padding-right: 4.5rem;
+}
+.normalButton {
+  background-color: red;
+  color: white;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  border-radius: 20px;
+}
+.register {
+  text-decoration: underline;
+  color: red;
+  font-decoration: italic;
+}
+.containerRegister {
+  /*grid-template-rows: [row1] 80rem [row2];
+  grid-template-columns: [column1-start] 25% [column1-end column2-start] 25%
+  [column2-end column3-start] 25% [column3-end column4-start] 25% [column4-end]*/
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 3rem;
+}
+.registerField {
+  /*padding-right: 100px;*/
+}
+.registerItem {
+  /*border-style: solid;*/
+  height: 15px;
+}
+
+/*.firstContainerRegisterSecondary {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.secondContainerRegisterSecondary {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}*/
+.categoryItemButton {
+  margin-left: 10em;
+}
+/*Details about meals*/
+.alergensTitle {
+  padding-right: 29rem;
+}
+.quantityAndPrice div{
+  display: inline-block;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.priceDetails p {
+  display: inline-block;
+}
+.allDetails div {
+  display: inline-block;
+}
+.displayPrice {
+  font-size: 2rem;
+}
+.arrowButton {
+  background-color: red;
+  color: white;
+  padding: 1rem;
+}
+.mealQuantity {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+/*.additionsBox {
+  border-radius: 2px;
+  border-style: solid;
+  border-color: black;
+}*/
+.additionsItems input {
+  padding-right: 20px;
+}
+/*.additionsItems div {
+  display: flex;
+  justify-content: space-between;
+}*/

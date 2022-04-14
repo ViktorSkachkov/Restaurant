@@ -6,7 +6,7 @@ const MenuItem = props => {
         return (
             <>
                 <div className="menuItem">
-                    <img src={props.id} alt=""/>
+                    <img src={props.image} alt=""/>
                     <br/>
                     <h3>{props.name}</h3>
                     <br/>

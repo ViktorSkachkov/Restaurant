@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-import MenuList from "./MenuList";
+import PastaMenuList from "./PastaMenuList";
 import Footer from "./Footer";
 import Details from "./Details";
 
@@ -14,10 +14,11 @@ const InfoForPizzaMeal = () => {
             <h2 className="menuTitle">Pizza</h2>
             <div className="menuList">
                 <center>
-                    <Details/>
+
                 </center>
             </div>
             <Footer/>
         </>
     )
 }
+export default InfoForPizzaMeal;

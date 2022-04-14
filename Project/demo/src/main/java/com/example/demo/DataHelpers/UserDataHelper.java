@@ -1,14 +1,16 @@
 package com.example.demo.DataHelpers;
 
-import com.example.demo.Normal.*;
+import com.example.demo.dto.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class UserDataHelper {
    // public MySqlConnection con;
-    private List<User> users = new ArrayList<>();
+    private List<UserDTO> users = new ArrayList<>();
     public UserDataHelper() {
-        User user1 = new User("Viktor", "Skachkov",
+        UserDTO user1 = new UserDTO(1, "Viktor", "Skachkov",
                 "viktor.sk", "viktor.sk", "viktor.skachkov01@gmail.com",
                 "vrtjylyj", "5678453");
         users.add(user1);
@@ -17,7 +19,7 @@ public class UserDataHelper {
         return this.con;
     }*/
 
-    public List<User> getUsers() {
+    public List<UserDTO> getUsers() {
         return users;
     }
 }
