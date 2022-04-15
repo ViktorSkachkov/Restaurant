@@ -39,7 +39,7 @@ const Details = (props) => {
         )
         code.push(component);
     }
-    code.pu
+    //code.pu
     if(meal != null) {
         return (
             <>
