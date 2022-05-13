@@ -13,14 +13,15 @@ function DesertsMenus() {
                     navigate("/menus");
                 }}>Go Back</button>
             </div>
-            <h2 className="menuTitle">Deserts</h2>
+            <center>
+            <h2 className="menuTitle">DESSERTS</h2>
             <div className="menuList">
-                <center>
                     <DesertsMenuList
 
                     />
-                </center>
+
             </div>
+            </center>
         </>
     )
 }

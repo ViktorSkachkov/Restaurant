@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react"
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import lasagnaImage from "./pictures/lasagna.jpg"
 
 function PastaMenuList() {
     let navigate = useNavigate();
@@ -42,8 +43,8 @@ let nav = "details/:{meals.id}";
                         navigate(`/details/${meals.at(i).id}`, {
 
                         });
-                    }}>Details ></button>
-                    <button key={meals.at(i).id}><a href="">Add to cart ></a></button>
+                    }}>Details</button>
+                    <button key={meals.at(i).id}><a href="">Add to cart</a></button>
                 </div>
             </div>
         )

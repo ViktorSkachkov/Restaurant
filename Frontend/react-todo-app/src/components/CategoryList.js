@@ -27,22 +27,22 @@ function CategoryList() {
             case "Pizza":
                 part =( <button className="categoryItemButton" key={categories.at(i).id} onClick={() => {
                     navigate("/pizzaMenus")
-                }}>View more > </button>);
+                }}>VIEW MORE</button>);
             break;
             case "Pasta":
                 part =( <button className="categoryItemButton" key={categories.at(i).id} onClick={() => {
                     navigate("/pastaMenus")
-                }}>View more > </button>);
+                }}>VIEW MORE</button>);
                 break;
             case "Salads":
                 part =( <button className="categoryItemButton" key={categories.at(i).id} onClick={() => {
                     navigate("/saladsMenus")
-                }}>View more > </button>);
+                }}>VIEW MORE</button>);
                 break;
             case "Deserts":
                 part = ( <button className="categoryItemButton" key={categories.at(i).id} onClick={() => {
                     navigate("/desertsMenus")
-                }}>View more > </button>);
+                }}>VIEW MORE</button>);
                 break;
         }
             component = (

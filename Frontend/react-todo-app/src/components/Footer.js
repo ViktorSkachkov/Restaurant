@@ -4,9 +4,10 @@ import {Link, NavLink} from "react-router-dom";
 
 function Footer() {
     return (
+
         <div className="footerLine">
             <p>
-                @Pizzeria Selinia All Rights reserved
+                @Red Hot Pizza All Rights reserved
             </p>
         </div>
     )

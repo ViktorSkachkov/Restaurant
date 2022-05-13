@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Link, NavLink, BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {Link, NavLink, BrowserRouter as Router, Routes, Route, useNavigate} from "react-router-dom";
 import Footer from "./Footer";
 import InfoForPizzaMeal from "./InfoForPizzaMeal";
 import HowToOrder from "./HowToOrder";
@@ -13,47 +13,28 @@ import PizzaMenus from "./PizzaMenus";
 import SaladsMenus from "./SaladsMenus";
 import DesertsMenus from "./DesertsMenus";
 import Details from "./Details";
-
+import Cart from "./Cart";
+import pizzaImage from "./pictures/Pizza.jpg"
+import pizzaImage2 from "./pictures/People_Eating_Pizza.jpg"
 
 function Index() {
     return (
-            <Router>
-            <nav className="navBar">
-                <div className="imageLogo">
-                    <img src="" alt=""/>
+        <div>
+            <center>
+        <img src={pizzaImage} className="homeImage"/><br/><br/>
+            <h2>ABOUT US</h2><br/>
+                <div className="aboutUs">
+                    <div className="Main_Page_Image_Container">
+                    <img src={pizzaImage2} alt=""/>
                 </div>
-                <div className='navLinks'>
-                    <Link to="/">Home</Link>
-                    <Link to="/menus">Menu</Link>
-                    <Link to="/howToOrder">How to order</Link>
-                    <Link to="/reservation">Reservation</Link>
-                    <Link to="/aboutUs">About us</Link>
+                    <div className="Main_Page_Text_Container">
+                        <p>We are Pizzeria Red Hot Pizza and we have dominated
+                            the market in the Netherlands ever since we first opened in 1996.<br/><br/>  We make pizza, pasta and other meals of undisputed quality which wins the trust of our clients and makes sure that they return to us every time for more.</p>
+                    </div>
                 </div>
-                <div className="cartAndLog">
-                    <Link to="/logIn">Log In</Link>
-                    <button><a href="" className="cartButton">Cart</a></button>
-                </div>
-            </nav>
-            <Routes>
-                <Route path="/reservation" element={<Reservation/>}/>
-                <Route path="/aboutUs" element={<AboutUs/>}/>
-                <Route path="/howToOrder" element={<HowToOrder/>}/>
-                <Route path="/menus" element={<Menus/>}/>
-                <Route path="/saladsMenus" element={<SaladsMenus/>}/>
-                <Route path="/desertsMenus" element={<DesertsMenus/>}/>
-                <Route path="/pastaMenus" element={<PastaMenus/>}/>
-                <Route path="/pizzaMenus" element={<PizzaMenus/>}/>
-                <Route path="/logIn" element={<LogIn/>}/>
-                <Route path="/register" element={<Register/>}/>
-                <Route path="/details/:id" element={<Details/>}/>
-            </Routes>
-
-                <div className="footerLine">
-                    <p>
-                        @Pizzeria Selinia All Rights reserved
-                    </p>
-                </div>
-            </Router>
+            </center>
+            <br/><br/>
+        </div>
     )
 }
 

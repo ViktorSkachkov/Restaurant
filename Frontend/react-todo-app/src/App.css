@@ -63,21 +63,28 @@
   margin: 0;
   padding: 0;
 }
+.mainBody {
+  background-image: url("./components/pictures/bg.jpg");
+  background-repeat: repeat;
+}
 .navBar a {
-  color: black;
+  color: white;
   text-decoration: none;
   padding-left: 20px;
   padding-right: 20px;
 }
 .cartButton {
-  background-color: red;
-  padding-right: 20px;
+  background-color: #BF0000;
+  padding-right: 2vw;
+  padding-left: 2vw;
+  color: white;
 }
 .navBar {
   display: flex;
   justify-content: center;
   justify-content: space-between;
-  background-color: lightgray;
+  align-items: center;
+  background-color: black;
   padding-bottom: 10px;
   padding-top: 10px;
 }
@@ -85,22 +92,21 @@
   display: flex;
 
 }
+.imageLogo {
+  padding-left: 3vw;
+}
 .cartAndLog {
   padding-right: 20px;
 }
 
 /*Menus*/
-.menuTitle {
-  color: red;
-  text-align: center;
-}
 .backLine {
   display: flex;
   justify-content: left;
 }
 .backLine button {
   margin-left: 20px;
-  background-color: red;
+  background-color: #BF0000;
   color: white;
   padding: 5px;
   border-radius: 50%;
@@ -114,12 +120,16 @@
   justify-content: space-between;
 }
 .menuButtons button {
-  background-color: red;
+  background-color: #BF0000;
   color: white;
 }
 .menuButtons * {
   color: white;
   text-decoration: none;
+  border-radius: 25px;
+  padding: 4px;
+  /*padding-left: 1vw;
+  padding-right: 1vw;*/
 }
 .menuItem {
   width: 15vw;
@@ -150,28 +160,34 @@
 
 /*Log in*/
 .formLabelUsername {
-  padding-right: 6.5rem;
+  padding-right: 20vw;
 }
 .formLabelPassword {
-  padding-right: 6.5rem;
+  padding-right: 20.5vw;
 }
 .formLabelFirstName {
-  padding-right: 6rem;
+  padding-right: 20vw;
 }
 .formLabelLastName {
-  padding-right: 6rem;
+  padding-right: 20vw;
 }
 .formLabelEmail {
-  padding-right: 8rem;
+  padding-right: 22.5vw;
 }
 .formLabelAddress {
-  padding-right: 7rem;
+  padding-right: 21vw;
 }
 .formLabelPhoneNumber {
-  padding-right: 4.5rem;
+  padding-right: 17.5vw;
+}
+.formLabelEnquiry {
+  padding-right: 21vw;
+}
+.formLabelName {
+  padding-right: 22.5vw;
 }
 .normalButton {
-  background-color: red;
+  background-color: #BF0000;
   color: white;
   padding-left: 50px;
   padding-right: 50px;
@@ -182,7 +198,7 @@
 }
 .register {
   text-decoration: underline;
-  color: red;
+  color: #BF0000;
   font-decoration: italic;
 }
 .containerRegister {
@@ -212,12 +228,17 @@
   flex-direction: column;
 }*/
 .categoryItemButton {
-  margin-left: 10em;
+  /*margin-left: 10vw;*/
+  margin-left: 3.5vw;
+  border-radius: 25px;
+  padding: 4px;
+  padding-left: 1vw;
+  padding-right: 1vw;
 }
 /*Details about meals*/
-.alergensTitle {
+/*.alergensTitle {
   padding-right: 29rem;
-}
+}*/
 .quantityAndPrice div{
   display: inline-block;
   padding-left: 0.5rem;
@@ -233,7 +254,7 @@
   font-size: 2rem;
 }
 .arrowButton {
-  background-color: red;
+  background-color: #BF0000;
   color: white;
   padding: 1rem;
 }
@@ -241,15 +262,280 @@
   margin-right: 1rem;
   margin-left: 1rem;
 }
-/*.additionsBox {
+.additionsBox {
   border-radius: 2px;
   border-style: solid;
   border-color: black;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.additionsBox div {
+  padding: 1em;
+}
+/*.additionsItems {
+  border-style: solid;
+  border-radius: 1px;
 }*/
-.additionsItems input {
+/*.additionsItems input {
   padding-right: 20px;
 }
-/*.additionsItems div {
+.additionsItems div {
   display: flex;
   justify-content: space-between;
 }*/
+
+/*Cart*/
+.cutlaries {
+  padding-left: 1em;
+  font-size: 20px;
+}
+.deliveryPrice {
+  font-size: 20px;
+  padding-right: 2rem;
+}
+.cutlaryAndPrice {
+  display: flex;
+  justify-content: space-between;
+}
+.displayFinalPrice {
+  font-size: 1.5rem;
+  padding-right: 2rem;
+}
+.changeButton {
+  background-color: #BF0000;
+  color: white;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+.addressTextField {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+.displayCartItems {
+  display: flex;
+  justify-content: space-between;
+  border-style: solid;
+  border-radius: 1px;
+}
+.changedSize {
+  width: 2rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+.imageAndName {
+  display: flex;
+  padding-top: 1rem;
+  padding-left: 1rem;
+}
+.rightSideOfCartItem {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.cartButton {
+  background-color: #BF0000;
+  color: white;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+.rightArrowCartButton {
+  background-color: #BF0000;
+  color: white;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: 1rem;
+}
+.deleteCartButton {
+  background-color: #BF0000;
+  color: white;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+.reserveTable {
+  font-size: 20px;
+}
+
+/*Calendar*/
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+/* Month header */
+.month {
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  background: #1abc9c;
+  text-align: center;
+  width: 90%;
+  margin-left: 5%;
+}
+
+/* Month list */
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Previous button inside month header */
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+/* Next button */
+.month .next {
+  float: right;
+  padding-top: 10px;
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color:#ddd;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  color: #666;
+  text-align: center;
+}
+
+/* Days (1-31) */
+.days {
+  padding: 10px 0;
+  background: #eee;
+  margin: 0;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: #777;
+}
+
+/* Highlight the "current" day */
+.days li .active {
+  padding: 5px;
+  background: #1abc9c;
+  color: white !important
+}
+.dateAndPreferences {
+  display: flex;
+  justify-content: space-around;
+}
+.year {
+  font-size: 18px;
+}
+.preferencesTextarea {
+  width: 90%;
+  height: 20vh;
+}
+.next {
+  margin-right: 1vw;
+}
+.prev {
+  margin-left: 1vw;
+}
+.telephoneNumber {
+  color: #BF0000;
+}
+
+/*dropdown menu*/
+.dropBar {
+  width: 150px;
+  position: relative;
+}
+.click {
+  background-color: #f85f73;
+}
+.click:hover {
+  background-color: #B71C1C;
+}
+.links, .click {
+  padding: 12px;
+  font-size: 1.2rem;
+  font-family: futura Md BT;
+  border: none;
+  outline: none;
+  width: 150px;
+  color: #fff;
+  transition: 0.3s;
+}
+.list {
+  position: absolute;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 0.3s;
+}
+.newList {
+  transform: scaleY(1);
+}
+/*
+.normalButton {
+  background-color: #283c63;
+}
+.normalButton:hover {
+  background-color: #01579B;
+  transform: scale(1.1);
+}*/
+.dropdown_bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 40vw;
+}
+.dropdownButton {
+  width: 20vw;
+}
+
+/*Home Page*/
+.homeImage {
+  height: 30vh;
+  width: 100vw;
+}
+.aboutUs {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 15vw;
+  padding-right: 15vw;
+}
+.Main_Page_Image_Container {
+  padding-right: 1vw;
+}
+.Main_Page_Text_Container {
+  padding-left: 1vw;
+}
+.Main_Page_Text_Container p {
+  text-align: left;
+}
+.howToOrderElement {
+  text-align: left;
+}
+.howToOrder {
+  padding-left: 25vw;
+  padding-right: 25vw;
+}
+.Label {
+  width: 25vw;
+}

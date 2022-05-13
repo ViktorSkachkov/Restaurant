@@ -5,6 +5,8 @@ import './App.css';
 import PastaMenus from "./components/PastaMenus";
 import {BrowserRouter as Router} from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 
 /*ReactDOM.render(
   <React.StrictMode>
@@ -18,7 +20,8 @@ import Navbar from "./components/Navbar";
 );*/
 ReactDOM.render(
     <React.StrictMode>
-        <Index/>
+        <Navigation/>
+        <Footer/>
     </React.StrictMode>,
     document.getElementById('root')
 );

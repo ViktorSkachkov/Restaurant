@@ -14,14 +14,14 @@ function PastaMenus() {
                         navigate("/menus");
                     }}>Go Back</button>
                 </div>
-                <h2 className="menuTitle">Pasta</h2>
+                <center>
+                <h2 className="menuTitle">PASTA</h2>
                 <div className="menuList">
-                    <center>
                         <PastaMenuList
 
                         />
-                    </center>
                 </div>
+                </center>
             </>
         )
 }

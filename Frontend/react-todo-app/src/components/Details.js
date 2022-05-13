@@ -30,48 +30,52 @@ const Details = (props) => {
     let decrease = "<";
     let increase = ">";
     let component;
-    let code = [];
+    let code;
+    let list = [];
     for(let i = 0; i < addings.length; i++) {
         component = (
             <div>
-                <input type="text" checked="checked"/> - {addings.at(i).weight} g - {addings.at(i).price}€
+                <input type="checkbox"/>  {addings.at(i).name} - {addings.at(i).weight} g - {addings.at(i).price}€
             </div>
         )
-        code.push(component);
+        list.push(component);
     }
-    //code.pu
+    code = (
+        <div className="additionsBox">
+            {list}
+        </div>
+    );
+    //code.push
     if(meal != null) {
         return (
             <>
                 <br/>
+                <center>
                 <div className="backLine">
                     <button onClick={() => {
                         navigate("/menus");
                     }}>Go Back
                     </button>
                 </div>
-                <h2 className="menuTitle">{meal.name}</h2><br/>
-              <center>
+                <h2 className="menuTitle">{meal.name.toUpperCase()}</h2><br/>
                   <div className="allDetails">
                       <div>
                           <img src="" alt=""/>
                       </div>
                       <div>
-                      <p>{meal.description}</p>
-                <h4 className="alergensTitle">Alergens</h4>
+                      <p>{meal.description}</p><br/><br/>
+                <h2 className="alergensTitle">ALERGENS</h2><br/><br/>
+                          <h2>ADDITIONS</h2><br/><br/>
                           <div className="additionsBox">
-                              <h4>Additions</h4>
-                              <div className="additionsItems">
-                                  {code}
-                              </div>
+                              {code}
                           </div>
                 </div>
-              </div>
+              </div><br/><br/><br/>
                   <div className="quantityAndPrice">
                       <div className="priceDetails"><p>Final price:</p> <p className="displayPrice">{meal.price}€</p></div>
                       <div><button className="arrowButton">{decrease}</button> <input type="text" className="mealQuantity"/> <button className="arrowButton">{increase}</button></div>
-                  </div>
-              </center>
+                  </div><br/>
+              </center><br/><br/><br/><br/><br/><br/><br/>
             </>
         )
     }

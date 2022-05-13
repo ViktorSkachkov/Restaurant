@@ -5,19 +5,19 @@ function LogIn() {
     let navigate = useNavigate();
     return (
         <>
-            <h1 className="menuTitle">
-                Login
+            <center><br/><br/>
+            <h1>
+                LOGIN
             </h1><br/><br/>
-            <center>
             <p>Fill in your personal information</p><br/><br/><br/>
             <form method="post">
                 <label for="username" className="formLabelUsername">Username</label><br/>
-                <input type="text"/><br/><br/><br/><br/>
+                <input type="text" className="Label"/><br/><br/><br/><br/>
                 <label for="password" className="formLabelPassword">Password</label><br/>
-                <input type="password"/>
+                <input type="password" className="Label"/>
+                <br/><br/><br/><br/>
+                <button className="normalButton">Submit</button>
             </form>
-            <br/><br/><br/><br/>
-            <button className="normalButton">Submit</button>
             <br/><br/>
             <p>If you don't have an account yet, please, <i><div className="register" onClick={() => {
                 navigate("/register");
@@ -25,7 +25,7 @@ function LogIn() {
                 register
             </div></i></p>
             </center>
-            <br/><br/>
+            <br/><br/><br/><br/><br/><br/><br/>
         </>
     )
 }
