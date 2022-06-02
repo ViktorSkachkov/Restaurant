@@ -3,10 +3,14 @@ package com.example.demo.Business.impl;
 import com.example.demo.Business.GetApprovedReservationRequestsUseCase;
 import com.example.demo.Repositories.ReservationRepository;
 import com.example.demo.dto.ReservationRequestDTO;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class GetApprovedReservationRequestsUseCaseImp implements GetApprovedReservationRequestsUseCase {
     private ReservationRepository rdh = new ReservationRepository();
     @Override

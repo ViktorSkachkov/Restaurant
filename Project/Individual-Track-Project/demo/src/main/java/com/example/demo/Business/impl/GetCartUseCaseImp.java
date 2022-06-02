@@ -14,7 +14,7 @@ public class GetCartUseCaseImp implements GetCartUseCase {
     private CartRepository cdh = new CartRepository();
 
     @Override
-    public List<OrderedMealDTO> GetCart() {
+    public List<OrderedMealDTO> getCart() {
         return  cdh.GetOrderedMeals();
     }
 }

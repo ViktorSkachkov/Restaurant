@@ -6,6 +6,5 @@ import com.example.demo.dto.GetCategoriesResponseDTO;
 import java.util.List;
 
 public interface GetCategoriesUseCase {
-    /*public List<CategoryDTO> GetCategories();*/
     GetCategoriesResponseDTO getCategories();
 }

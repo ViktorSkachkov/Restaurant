@@ -3,6 +3,8 @@ package com.example.demo.Business.impl;
 import com.example.demo.Business.GetDessertsUseCase;
 import com.example.demo.Repositories.OrderRepository;
 import com.example.demo.dto.MealDTO;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;

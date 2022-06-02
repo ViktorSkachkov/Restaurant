@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 public class MealDTO {
     private int id;
-    private int category;
+    private CategoryDTO category;
     private String image;
     private String name;
     private String description;

@@ -1,6 +1,5 @@
 package com.example.demo.Repositories;
 
-import com.example.demo.MockServices.MockCartService;
 import com.example.demo.dto.*;
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +12,6 @@ import java.util.List;
 public class CartRepository {
     //private MySqlConnection con;
 
-    private MockCartService mockCartAdministration;
     private List<AddingDTO> addings = new ArrayList<>();
     List<UserDTO> users = new ArrayList<>();
     private List<CategoryDTO> categories = new ArrayList<>();
@@ -77,8 +75,8 @@ public class CartRepository {
             Statement statement2 = Con.GetConnection().createStatement();
             ResultSet resultSet2 = statement2.executeQuery("select * from meal");
             while(resultSet2.next()) {
-                meals.add(new MealDTO(resultSet2.getInt("id"), resultSet2.getInt("category") , resultSet2.getString("image"),resultSet2.getString("name"), resultSet2.getString("description"),
-                        resultSet2.getDouble("weight"), resultSet2.getDouble("price")));
+                /*meals.add(new MealDTO(resultSet2.getInt("id"), resultSet2.getInt("category") , resultSet2.getString("image"),resultSet2.getString("name"), resultSet2.getString("description"),
+                        resultSet2.getDouble("weight"), resultSet2.getDouble("price")));*/
             }
             Statement statement3 = Con.GetConnection().createStatement();
             ResultSet resultSet3 = statement3.executeQuery("select * from adding");

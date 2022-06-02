@@ -1,14 +1,11 @@
 package com.example.demo;
 
-import com.example.demo.Business.MockImpl.*;
-import com.example.demo.MockServices.*;
-import com.example.demo.MockControllers.*;
-import com.example.demo.MockRepositories.*;
+
 import com.example.demo.dto.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
+/*
 @SpringBootTest
 public class ReservationTests {
     MockReservationRepository mrdh = new MockReservationRepository();
@@ -109,3 +106,4 @@ public class ReservationTests {
         Assertions.assertEquals(reservationRequest, mockGetApprovedReservationRequestsUseCaseImp.GetApprovedReservationRequests().get(0));
     }
 }
+*/

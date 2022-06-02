@@ -1,11 +1,11 @@
 import SaladsMenuList from "./SaladsMenuList";
 import {useNavigate} from "react-router-dom";
 
-function SaladsMenus() {
+const SaladsMenus = (loggedUser) => {
     let navigate = useNavigate();
     return (
 
-        <>
+        <div className="mainBody">
             <br/>
             <div className="backLine">
                 <button onClick={() => {
@@ -20,7 +20,7 @@ function SaladsMenus() {
                     />
             </div>
             </center>
-        </>
+        </div>
     )
 }
 export default SaladsMenus

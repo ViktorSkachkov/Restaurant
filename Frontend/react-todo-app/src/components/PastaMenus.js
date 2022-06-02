@@ -3,11 +3,11 @@ import {useNavigate} from "react-router-dom";
 
 
 
-function PastaMenus() {
+const PastaMenus = (loggedUser) => {
     let navigate = useNavigate();
         return (
 
-            <>
+            <div className="mainBody">
                 <br/>
                 <div className="backLine">
                     <button onClick={() => {
@@ -22,7 +22,7 @@ function PastaMenus() {
                         />
                 </div>
                 </center>
-            </>
+            </div>
         )
 }
 export default PastaMenus

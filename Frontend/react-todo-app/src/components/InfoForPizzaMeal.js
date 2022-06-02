@@ -3,7 +3,7 @@ import PastaMenuList from "./PastaMenuList";
 import Footer from "./Footer";
 import Details from "./Details";
 
-const InfoForPizzaMeal = () => {
+const InfoForPizzaMeal = (loggedUser) => {
     return (
         <>
             <Navbar/>

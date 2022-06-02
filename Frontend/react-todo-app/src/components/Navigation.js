@@ -15,48 +15,68 @@ import React from "react";
 import Index from "./Index";
 import Contacts from "./Contacts";
 import logoImage from "./pictures/logo.png"
+import Home from "./Home";
+import ReservationsEmployee from "./EmployeePages/ReservationsEmployee";
 
-function Navigation() {
-    return (
-        <Router>
+const Navigation = (loggedUser) =>  {
+    if(loggedUser.loggedUser == null) {
+        return (
             <nav className="navBar">
                 <div className="imageLogo">
                     <img src={logoImage} alt=""/>
                 </div>
                 <div className='navLinks'>
                     <Link to="/">Home</Link>
-                    <Link to="/menus">Menu</Link>
-                    <Link to="/howToOrder">How to order</Link>
-                    <Link to="/reservation">Reservation</Link>
-                    <Link to="/contacts">Contacts</Link>
                 </div>
                 <div className="cartAndLog">
                     <Link to="/logIn">Log In</Link>
-                    <Link to="/cart">
-                        <button className="cartButton">
-                            Cart
-                        </button>
-                    </Link>
                 </div>
             </nav>
+        )
+    }
+else if(loggedUser.loggedUser.category == "CLIENT") {
+    return (
 
-            <Routes>
-                <Route path="/" element={<Index/>}/>
-                <Route path="/contacts" element={<Contacts/>}/>
-                <Route path="/reservation" element={<Reservation/>}/>
-                <Route path="/aboutUs" element={<AboutUs/>}/>
-                <Route path="/howToOrder" element={<HowToOrder/>}/>
-                <Route path="/menus" element={<Menus/>}/>
-                <Route path="/saladsMenus" element={<SaladsMenus/>}/>
-                <Route path="/desertsMenus" element={<DesertsMenus/>}/>
-                <Route path="/pastaMenus" element={<PastaMenus/>}/>
-                <Route path="/pizzaMenus" element={<PizzaMenus/>}/>
-                <Route path="/logIn" element={<LogIn/>}/>
-                <Route path="/cart" element={<Cart/>}/>
-                <Route path="/register" element={<Register/>}/>
-                <Route path="/details/:id" element={<Details/>}/>
-            </Routes>
-        </Router>
+        <nav className="navBar">
+            <div className="imageLogo">
+                <img src={logoImage} alt=""/>
+            </div>
+            <div className='navLinks'>
+                <Link to="/">Home</Link>
+                <Link to="/menus">Menu</Link>
+                <Link to="/howToOrder">How to order</Link>
+                <Link to="/reservation">Reservation</Link>
+                <Link to="/contacts">Contacts</Link>
+            </div>
+            <div className="cartAndLog">
+                <Link to="/logOut">Log Out</Link>
+                <Link to="/cart">
+                    <button className="cartButton">
+                        Cart
+                    </button>
+                </Link>
+            </div>
+        </nav>
     )
+}
+else if(loggedUser.loggedUser.category == "WORKER") {
+    return (
+        <nav className="navBar">
+            <div className="imageLogo">
+                <img src={logoImage} alt=""/>
+            </div>
+            <div className='navLinks'>
+                <Link to="/">Home</Link>
+                <Link to="/menusEmployee">Meals</Link>
+                <Link to="/ordersEmployee">Orders</Link>
+                <Link to="/reservationsEmployee">Reservations</Link>
+                <Link to="/sales">Sales</Link>
+            </div>
+            <div className="cartAndLog">
+                <Link to="/logOut">Log Out</Link>
+            </div>
+        </nav>
+    )
+}
 }
 export default Navigation

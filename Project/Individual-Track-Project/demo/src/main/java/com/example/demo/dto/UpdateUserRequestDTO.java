@@ -1,9 +1,6 @@
 package com.example.demo.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -13,9 +10,31 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateUserRequestDTO {
-    private Long id;
-    /*@NotBlank
-    private String name;
     @NotNull
-    private Long countryId;*/
+    @EqualsAndHashCode.Exclude
+    private int id;
+
+    @NotBlank
+    private String firstName;
+
+    @NotBlank
+    private String lastName;
+
+    @NotBlank
+    private String username;
+
+    @NotBlank
+    private String pwd;
+
+    @NotBlank
+    private String email;
+
+    @NotBlank
+    private String address;
+
+    @NotBlank
+    private String phone;
+
+    @NotBlank
+    private String category;
 }

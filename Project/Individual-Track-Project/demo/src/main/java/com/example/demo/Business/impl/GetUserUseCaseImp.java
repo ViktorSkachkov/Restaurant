@@ -1,16 +1,6 @@
 package com.example.demo.Business.impl;
 
 //import com.example.demo.Business.GetUserUseCase;
-import com.example.demo.Business.exception.UnauthorizedDataAccessException;
-import com.example.demo.Normal.RoleEnum;
-import com.example.demo.Repositories.UserItemRepository;
-import com.example.demo.Repositories.UserRepository;
-import com.example.demo.dto.AccessTokenDTO;
-import com.example.demo.dto.UserDTO;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 /*@Service
 @AllArgsConstructor*/

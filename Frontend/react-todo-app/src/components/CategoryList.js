@@ -1,23 +1,35 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import Cookies from "universal-cookie";
+import jwtDecode from "jwt-decode";
 
-function CategoryList() {
+const CategoryList = (loggedUser) => {
     let navigate = useNavigate();
     const [categories, setCategories] = useState([]);
-    /*const [ids, setIds] = useState([]);
-    const [images, setImages] = useState([]);
-    const [names, setNames] = useState([]);*/
-    axios.defaults.baseURL = "http://localhost:8080";
+
+    const cookies = new Cookies();
+    const token = cookies.get("accessToken");
 
     useEffect(() => {
         getCategories();
-    })
+    }, [loggedUser.loggedUser])
     function getCategories() {
-        axios.get('orders/Categories').then(res => {setCategories(res.data)})
-        /*axios.get('/individualTrack/categoryIds').then(res => {setIds(res.data)})
-        axios.get('/individualTrack/categoryNames').then(res => {setNames(res.data)})
-        axios.get('/individualTrack/categoryImages').then(res => {setImages(res.data)})*/
+        var config = {
+            method: "get",
+            url: `http://localhost:8080/orders/Categories`,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        };
+
+        axios(config)
+            .then(function (response) {
+                setCategories(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
     let code = [];
     let component;
@@ -27,22 +39,22 @@ function CategoryList() {
             case "Pizza":
                 part =( <button className="categoryItemButton" key={categories.at(i).id} onClick={() => {
                     navigate("/pizzaMenus")
-                }}>VIEW MORE</button>);
+                }}>VIEW MORE ></button>);
             break;
             case "Pasta":
                 part =( <button className="categoryItemButton" key={categories.at(i).id} onClick={() => {
                     navigate("/pastaMenus")
-                }}>VIEW MORE</button>);
+                }}>VIEW MORE ></button>);
                 break;
             case "Salads":
                 part =( <button className="categoryItemButton" key={categories.at(i).id} onClick={() => {
                     navigate("/saladsMenus")
-                }}>VIEW MORE</button>);
+                }}>VIEW MORE ></button>);
                 break;
-            case "Deserts":
+            case "Desserts":
                 part = ( <button className="categoryItemButton" key={categories.at(i).id} onClick={() => {
-                    navigate("/desertsMenus")
-                }}>VIEW MORE</button>);
+                    navigate("/dessertsMenus")
+                }}>VIEW MORE ></button>);
                 break;
         }
             component = (

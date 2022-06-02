@@ -2,11 +2,7 @@ package com.example.demo.Business.impl;
 
 import com.example.demo.Business.GetReservationRequestUseCase;
 import com.example.demo.Repositories.*;
-import com.example.demo.Repositories.TableItemRepository;
-import com.example.demo.dto.GetReservationRequestResponseDTO;
-import com.example.demo.dto.GetTableItemsResponseDTO;
-import com.example.demo.dto.ReservationRequestDTO;
-import com.example.demo.dto.TableItemDTO;
+import com.example.demo.dto.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

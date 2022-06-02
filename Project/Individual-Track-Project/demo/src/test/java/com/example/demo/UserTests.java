@@ -1,16 +1,11 @@
 package com.example.demo;
 
-import com.example.demo.Business.MockImpl.MockGetClientsUseCaseImp;
-import com.example.demo.Business.MockImpl.MockGetUserUseCaseImp;
-import com.example.demo.Business.MockImpl.MockGetWorkersUseCaseImp;
-import com.example.demo.MockServices.MockUserService;
-import com.example.demo.MockControllers.MockUserController;
-import com.example.demo.MockRepositories.MockUserRepository;
+
 import com.example.demo.dto.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
+/*
 @SpringBootTest
 public class UserTests {
     MockUserRepository mudh = new MockUserRepository();
@@ -62,4 +57,4 @@ public class UserTests {
         Assertions.assertEquals(client, mockGetUserUseCaseImp.GetUser("dragonslayer",
                 "mahata"));
     }
-}
+}*/

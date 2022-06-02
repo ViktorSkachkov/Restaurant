@@ -2,11 +2,11 @@ import PizzaMenuList from "./PizzaMenuList";
 import {useNavigate} from "react-router-dom";
 
 
-function PizzaMenus() {
+const PizzaMenus = (loggedUser) => {
     let navigate = useNavigate();
     return (
 
-        <>
+        <div className="mainBody">
             <br/>
             <div className="backLine">
                 <button onClick={() => {
@@ -21,7 +21,7 @@ function PizzaMenus() {
                     />
             </div>
             </center>
-        </>
+        </div>
     )
 }
 export default PizzaMenus

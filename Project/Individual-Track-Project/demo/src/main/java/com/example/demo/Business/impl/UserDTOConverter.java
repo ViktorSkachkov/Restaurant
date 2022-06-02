@@ -1,10 +1,7 @@
 package com.example.demo.Business.impl;
 
-import com.example.demo.Normal.*;
-import com.example.demo.dto.ClientDTO;
-import com.example.demo.dto.TableItemDTO;
+import com.example.demo.RepositoryClasses.*;
 import com.example.demo.dto.UserDTO;
-import com.example.demo.dto.WorkerDTO;
 
 final class UserDTOConverter {
     private UserDTOConverter() {
@@ -12,7 +9,7 @@ final class UserDTOConverter {
     }
     public static UserDTO convertToDTO(User user) {
         return UserDTO.builder()
-                    .id(user.getId())
+                    .id(Math.toIntExact(user.getId()))
                     .firstName(user.getFirstName())
                     .lastName(user.getLastName())
                     .username(user.getUsername())

@@ -1,0 +1,244 @@
+/*Assign tables*/
+.tableItem {
+   width: 60vw;
+    /*height: 10vh;*/
+    border-style: solid;
+    border-radius: 0.5px;
+    margin: 1em;
+    display: flex;
+    justify-content: space-around;
+}
+.assignButton {
+    background-color: #BF0000;
+    color: white;
+    font-size: 20px;
+   /* margin: 0.5rem;*/
+    padding-left: 5vw;
+    padding-right: 5vw;
+    margin-top: 5vh;
+    /*margin-top: 25%;*/
+}
+.assignedText {
+    font-size: 20px;
+    /* margin: 0.5rem;*/
+    padding-left: 5vw;
+    padding-right: 5vw;
+    margin-top: 5vh;
+    /*margin-top: 25%;*/
+}
+.tableSeatsAndLocation  {
+    padding-top: 0.5%;
+}
+.tableSeatsAndLocation p {
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+/*Reservation Employee*/
+.reservationItem {
+    width: 60vw;
+    border-style: solid;
+    border-radius: 0.5px;
+    margin: 1em;
+    display: flex;
+    justify-content: space-around;
+}
+.reservationItemButton {
+    background-color: #BF0000;
+    color: white;
+    font-size: 20px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    margin-top: 8vh;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+}
+.reservationItemButton2 {
+    background-color: #BF0000;
+    color: white;
+    font-size: 20px;
+    padding-left: 5.75vw;
+    padding-right: 5.75vw;
+    margin-top: 6vh;
+    margin-left: 1vw;
+    margin-right: 0.5vw;
+}
+.reservationText {
+    margin-top: 2vh;
+}
+.reservationText p {
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+/*Menus*/
+/*.ingredientsMiddle {
+    margin-top: 5vh;
+
+}*/
+.viewMenusButton {
+    background-color: #BF0000;
+    color: white;
+    font-size: 20px;
+    /*padding-left: 5vw;
+    padding-right: 5vw;*/
+    width: 100px;
+    margin-top: 1vh;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+}
+.menuElement {
+    width: 1000px;
+    border-style: solid;
+    border-radius: 0.5px;
+    margin: 3em;
+    display: flex;
+    justify-content: space-around;
+}
+.menuElement div img {
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+}
+.searchButton {
+    background-color: steelblue;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Update Meal*/
+.formLabelDescription {
+    margin-right: 19rem;
+}
+.formLabelWeight {
+    margin-right: 21rem;
+}
+.formLabelPrice {
+    margin-right: 22rem;
+}
+.formLabelCategory {
+    margin-right: 20rem;
+}
+.formLabelImage {
+    margin-right: 21rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Reservation Labels*/
+
+.formLabelNumberOfPeople {
+    margin-right: 15.5rem;
+}
+.formLabelStartTime {
+    margin-right: 19rem;
+}
+.formLabelFinishTime {
+    margin-right: 18.5rem;
+}
+.formLabelPreferences {
+    margin-right: 18rem;
+}
+
+
+/*Menus*/
+.detailsButton {
+    background-color: #BF0000;
+    color: white;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 15px;
+    border-radius: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Sales*/
+.salesTable {
+    width: 80%;
+    border-collapse: collapse;
+}
+.salesTable, th, td {
+    border: 1px solid;
+}
+
+
+
+
+
+
+/*Cart*/
+.cartImage {
+    height: 1vh;
+    width: 10vw;
+    padding-bottom: 1rem;
+    padding-right: 1vw;
+}
+
+
+
+.userElement {
+    border-style: solid;
+    border-radius: 0.5px;
+    border-color: #BF0000;
+    width: 55%;
+}
+.orderItem {
+    width: 50vw;
+    border-style: solid;
+    border-radius: 0.5px;
+    margin: 1em;
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,12 +1,7 @@
 package com.example.demo.dto;
 
-import com.example.demo.Normal.Adding;
-import com.example.demo.Normal.Meal;
-import com.example.demo.Normal.User;
 import lombok.*;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 

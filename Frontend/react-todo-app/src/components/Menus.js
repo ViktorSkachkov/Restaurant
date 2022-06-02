@@ -4,7 +4,7 @@ import CategoryList from "./CategoryList";
 function Menus() {
 
     return(
-        <>
+        <div className="mainBody">
             <center><br/><br/>
             <h1>
                 MENU
@@ -15,7 +15,7 @@ function Menus() {
                 </div>
             <h5>BEST OFFERS</h5><br/>
             </center><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    </>
+    </div>
     )
 }
 

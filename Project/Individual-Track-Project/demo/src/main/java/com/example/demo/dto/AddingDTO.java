@@ -6,7 +6,7 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AddingDTO {
+public class AddingDTO{
     private int id;
     private String name;
     private double weight;

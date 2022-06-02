@@ -1,9 +1,5 @@
 package com.example.demo;
 
-import com.example.demo.Business.MockImpl.*;
-import com.example.demo.MockServices.MockCartService;
-import com.example.demo.MockControllers.MockCartController;
-import com.example.demo.MockRepositories.MockCartRepository;
 import com.example.demo.dto.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

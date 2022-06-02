@@ -1,13 +1,6 @@
 package com.example.demo.dto;
 
-import com.example.demo.Normal.OrderedMeal;
-import com.example.demo.Normal.User;
 import lombok.*;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.List;
 
 @Builder
 @Data
@@ -15,22 +8,9 @@ import java.util.List;
 @NoArgsConstructor
 public class OrderDTO {
     private Long id;
-    private int userId;
-    private int orderedMealId;
-
     private UserDTO user;
+    private MealDTO meal;
+    private int numberOfItems;
+    private String formatted_time;
     private double totalPrice;
-    private List<OrderedMealDTO> orderedMealList = new ArrayList<>();
-    public void AddMeal(OrderedMealDTO orderedMeal) {
-        this.orderedMealList.add(orderedMeal);
-    }
-    public void RemoveMeal(OrderedMealDTO orderedMeal) {
-        this.orderedMealList.remove(orderedMeal);
-    }
-    public void AddANumberOfMeals(OrderedMealDTO orderedMeal, int number) {
-
-    }
-    public boolean RemoveANumberOfMeals(OrderedMealDTO orderedMeal, int number) {
-        return true;
-    }
 }

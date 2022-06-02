@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 
-function AboutUs() {
+const AboutUs = (loggedUser) => {
     return (
         <>    <center><h1>About us</h1></center>   </>
     )

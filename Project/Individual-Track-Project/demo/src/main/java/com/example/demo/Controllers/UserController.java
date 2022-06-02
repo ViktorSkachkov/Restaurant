@@ -1,43 +1,44 @@
 package com.example.demo.Controllers;
 
-import com.example.demo.Business.GetClientsUseCase;
-import com.example.demo.Business.GetTableItemsUseCase;
-//import com.example.demo.Business.GetUserUseCase;
-import com.example.demo.Business.GetUsersUseCase;
-import com.example.demo.Business.impl.*;
-import com.example.demo.MockServices.*;
+import com.example.demo.Business.*;
+
+import com.example.demo.RepositoryClasses.User;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.demo.dto.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.security.RolesAllowed;
+import javax.validation.Valid;
 import java.util.*;
 @RestController
 @CrossOrigin(origins="http://localhost:3000/", allowedHeaders = "*")
-@RequestMapping("/users/")
+@RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
-    private UserService ua = new UserService();
-    private MockUserService mockUserAdministration;
-    private GetClientsUseCaseImp getClientsUseCaseImp = new GetClientsUseCaseImp();
-    private GetWorkersUseCaseImp getWorkersUseCaseImp = new GetWorkersUseCaseImp();
-    //private GetUserUseCaseImp getUserUseCaseImp = new GetUserUseCaseImp();
-    private VerifyAccountUseCaseImp verifyAccountUseCaseImp = new VerifyAccountUseCaseImp();
 
-    List<UserDTO> users = new ArrayList<>();
-    private boolean match;
     private final GetUsersUseCase getUsersUseCase;
-    //private final GetUserUseCase getUserUseCase;
-   /* @Autowired
-    public UserController(UserService userAdministration) {
-        this.ua = userAdministration;
+    private final AddUserUseCase addUserUseCase;
+    private final UpdateUserUseCase updateUserUseCase;
+
+    @PostMapping
+    public CreateUserResponseDTO createUser(@RequestBody @Valid CreateUserRequestDTO createUserRequest) {
+       return addUserUseCase.createUser(createUserRequest);
+    }
+
+
+
+
+    /*@IsAuthenticated
+    @RolesAllowed({"ROLE_CLIENT"})
+    @PostMapping("updateUser")
+    public User updateUser(@RequestBody @Valid UpdateUserRequestDTO updateUserRequest) {
+        return updateUserUseCase.updateUser(updateUserRequest);
     }*/
+
    @IsAuthenticated
-   @RolesAllowed({"ROLE_CLIENT"})
-    @GetMapping("clients")
+   @RolesAllowed({"ROLE_WORKER"})
+    @GetMapping("/clients")
     public List<UserDTO> GetClients(/*@PathVariable(value = "id") final long id*/) {
 
         List<UserDTO> clients = new ArrayList<>();
@@ -48,11 +49,10 @@ public class UserController {
             }
         }
         return clients;
-        //return getClientsUseCaseImp.GetClients();
     }
     @IsAuthenticated
     @RolesAllowed({"ROLE_WORKER", "ROLE_CLIENT"})
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public /*Optional<*/UserDTO/*>*/ GetUser(@PathVariable(value = "id") final long id) {
 
         UserDTO user = new UserDTO();
@@ -62,13 +62,10 @@ public class UserController {
             }
         }
         return user;
-       // final Optional<UserDTO> userOptional = getUserUseCase.getUser(id);
-        //return userOptional;
-        //return getClientsUseCaseImp.GetClients();
     }
     @IsAuthenticated
     @RolesAllowed({"ROLE_WORKER"})
-    @GetMapping("workers")
+    @GetMapping("/workers")
     public List<UserDTO> GetWorkers(/*@PathVariable(value = "id") final long id*/) {
         List<UserDTO> workers = new ArrayList<>();
         int id = 0;
@@ -84,8 +81,8 @@ public class UserController {
     public UserDTO GetUser(@PathVariable String username,@PathVariable String password) {
         return getUserUseCaseImp.GetUser(username, password);
     }*/
-@GetMapping("verification/{username}/{password}")
+/*@GetMapping("verification/{username}/{password}")
     public UserDTO VerifyAccount(@PathVariable String username, @PathVariable String password) {
     return verifyAccountUseCaseImp.VerifyAccount(username, password);
-}
+}*/
 }

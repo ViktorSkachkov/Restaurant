@@ -211,11 +211,12 @@
 }
 .registerField {
   /*padding-right: 100px;*/
+  height: 5px
 }
-.registerItem {
+/*.registerItem {*/
   /*border-style: solid;*/
-  height: 15px;
-}
+ /* height: 15px;
+}*/
 
 /*.firstContainerRegisterSecondary {
   display: flex;
@@ -356,7 +357,8 @@
   margin-left: 1rem;
 }
 .reserveTable {
-  font-size: 20px;
+  /*font-size: 20px;*/
+  /*margin-right: 18.5rem;*/
 }
 
 /*Calendar*/
@@ -450,6 +452,9 @@ body {font-family: Verdana, sans-serif;}
 .preferencesTextarea {
   width: 90%;
   height: 20vh;
+  text-align: left;
+  padding-left:0;
+  padding-top:0;
 }
 .next {
   margin-right: 1vw;
@@ -538,4 +543,18 @@ body {font-family: Verdana, sans-serif;}
 }
 .Label {
   width: 25vw;
+}
+.WarningMessage {
+  color: #B71C1C;
+  font-size: 18px;
+}
+
+/*Log Out*/
+.logoutButtons {
+  display: flex;
+  justify-content: space-around;
+}
+.logoutButtons button {
+  background-color: #BF0000;
+  color: white;
 }

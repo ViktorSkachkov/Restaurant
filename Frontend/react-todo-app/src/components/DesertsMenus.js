@@ -2,11 +2,11 @@ import DesertsMenuList from "./DesertsMenuList";
 import {useNavigate} from "react-router-dom";
 
 
-function DesertsMenus() {
+const DesertsMenus = (loggedUser) => {
     let navigate = useNavigate();
     return (
 
-        <>
+        <div className="mainBody">
             <br/>
             <div className="backLine">
                 <button onClick={() => {
@@ -22,7 +22,7 @@ function DesertsMenus() {
 
             </div>
             </center>
-        </>
+        </div>
     )
 }
 export default DesertsMenus
