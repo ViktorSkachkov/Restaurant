@@ -4,14 +4,14 @@ stages:
 
 build:
   stage: build
-  script:
-    - cd Project/demo
+  script: 
+    - cd individual_track_viktor_skachkov/Project/Individual-Track-Project/demo
     - ./gradlew build -x test
     - ./gradlew.bat --stop
 
 test:
   stage: test
   script:
-    - cd Project/demo
+    - cd individual_track_viktor_skachkov/Project/Individual-Track-Project/demo
     - ./gradlew test
     - ./gradlew.bat --stop
