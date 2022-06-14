@@ -1,10 +1,10 @@
 stages:
-  - sonarqube-check
+  - test
 
 sonarqube-check:
-  stage: sonarqube-check
-  image: gradle:jre11-slim
-  script: ./gradlew sonarqube -Dsonar.qualitygate.wait=true
+  stage: test
+  image: gradle:alpine
+  script: gradlew sonarqube -Dsonar.qualitygate.wait=true
   allow_failure: true
   only:
     - master
