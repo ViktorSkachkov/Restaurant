@@ -16,7 +16,7 @@ test:
     - cd Project/Individual-Track-Project/demo
     - ./gradlew test
     - ./gradlew.bat --stop
-      allow_failure: true
+  allow_failure: true
 
 sonarqube-check:
   stage: sonarqube-check
