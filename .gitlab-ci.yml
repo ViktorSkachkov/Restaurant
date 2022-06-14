@@ -1,3 +1,5 @@
+stages:
+  - test
 image: gradle:alpine
 
 sonarqube-check:
