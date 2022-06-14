@@ -4,7 +4,9 @@ stages:
 sonarqube-check:
   stage: test
   image: gradle:alpine
-  script: gradlew sonarqube -Dsonar.qualitygate.wait=true
+  script: 
+    - cd Project/Individual-Track-Project/demo
+    - gradlew sonarqube -Dsonar.qualitygate.wait=true
   allow_failure: true
   only:
     - main
