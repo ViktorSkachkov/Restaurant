@@ -5,16 +5,13 @@ stages:
 build:
   stage: build
   script: 
-    - cd Project/Individual-Track-Project/demo
     - ./gradlew build -x test
     - ./gradlew.bat --stop
 
 sonarqube-check:
   stage: test
   image: gradle:alpine
-  script: 
-    - cd Project/Individual-Track-Project/demo
-    - build.gradle sonarqube -Dsonar.qualitygate.wait=true
+  script: gradle sonarqube -Dsonar.qualitygate.wait=true
   allow_failure: true
   only:
     - main
