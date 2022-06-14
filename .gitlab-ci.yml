@@ -13,7 +13,8 @@ image: gradle:alpine
 
 sonarqube-check:
   stage: test
-  script: gradle sonarqube -Dsonar.qualitygate.wait=true
+  script:
+    - cd Project/Individual-Track-Project/demo
+    - gradle sonarqube -Dsonar.qualitygate.wait=true
   only:
     - main
-    - cd Project/Individual-Track-Project/demo
