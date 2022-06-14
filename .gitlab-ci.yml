@@ -14,7 +14,7 @@ sonarqube-check:
   image: gradle:alpine
   script: 
     - cd Project/Individual-Track-Project/demo
-    - .gradle sonarqube -Dsonar.qualitygate.wait=true
+    - build.gradle sonarqube -Dsonar.qualitygate.wait=true
   allow_failure: true
   only:
     - main
