@@ -7,5 +7,5 @@ sonarqube-check:
   script: gradlew sonarqube -Dsonar.qualitygate.wait=true
   allow_failure: true
   only:
-    - master
+    - main
 
