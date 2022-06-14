@@ -16,3 +16,4 @@ sonarqube-check:
   script: gradle sonarqube -Dsonar.qualitygate.wait=true
   only:
     - main
+    - cd Project/Individual-Track-Project/demo
