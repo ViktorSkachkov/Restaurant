@@ -1,11 +1,18 @@
 stages:
   - test
-image: gradle:alpine
 
 sonarqube-check:
   stage: test
-  script:
-    - gradle sonarqube -Dsonar.qualitygate.wait=true
+  image: gradle:jre11-slim
+  variables:
+    SONAR_USER_HOME: "Project/Individual-Track-Project/demo/.sonar"  # Defines the location of the analysis task cache
+    GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+  cache:
+    key: "newestJob"
+    paths:
+      - .sonar/cache
+  script: ./gradlew sonarqube -Dsonar.qualitygate.wait=true
+  allow_failure: true
   only:
-    - main
+    - master
 
