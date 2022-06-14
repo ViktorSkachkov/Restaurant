@@ -6,6 +6,7 @@ import com.example.demo.RepositoryClasses.Adding_Cart_Relation;
 import com.example.demo.RepositoryClasses.CartItem;
 import com.example.demo.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.demo.dto.*;
+import io.swagger.v3.core.util.Json;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -47,7 +48,7 @@ public class CartController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_CLIENT"})
     @GetMapping("/cartItems")
-    public List<CartItemDTO> GetCartItems(@RequestBody @Valid GetSpecificCartItemsRequestDTO getSpecificCartItemsRequestDTO) {
+    public List<CartItemDTO> GetCartItems(/*@RequestBody @Valid GetSpecificCartItemsRequestDTO getSpecificCartItemsRequestDTO*/) {
         return getCartItemsUseCase.getCartItems().getCartItems();
     }
 
@@ -55,17 +56,33 @@ public class CartController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_CLIENT"})
     @GetMapping("/increase/{id}")
-    public String increaseNumberOfItems(@PathVariable(value = "id") final long id) {
-        increaseNumberOfItemsUseCase.increase(id);
-        return "answer";
+    public CartItem increaseNumberOfItems(@PathVariable(value = "id") final long id) {
+        CartItem cartItem = increaseNumberOfItemsUseCase.increase(id);
+        return cartItem;
+       /* List<CartItemDTO> cartItemList = getCartItemsUseCase.getCartItems().getCartItems();
+        CartItemDTO returnValue = null;
+        for(CartItemDTO cartItemDTO : cartItemList) {
+            if(cartItemDTO.getId() == id) {
+                returnValue = cartItemDTO;
+            }
+        }
+        return returnValue;*/
     }
 
     @IsAuthenticated
     @RolesAllowed({"ROLE_CLIENT"})
     @GetMapping("/decrease/{id}")
-    public String decreaseNumberOfItems(@PathVariable(value = "id") final long id) {
-        decreaseNumberOfItemsUseCase.decrease(id);
-        return "answer";
+    public CartItem decreaseNumberOfItems(@PathVariable(value = "id") final long id) {
+        CartItem cartItem = decreaseNumberOfItemsUseCase.decrease(id);
+        return cartItem;
+        /*List<CartItemDTO> cartItemList = getCartItemsUseCase.getCartItems().getCartItems();
+        CartItemDTO returnValue = null;
+        for(CartItemDTO cartItemDTO : cartItemList) {
+            if(cartItemDTO.getId() == id) {
+                returnValue = cartItemDTO;
+            }
+        }
+        return returnValue;*/
     }
 
 

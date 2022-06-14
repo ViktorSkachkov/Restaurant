@@ -13,7 +13,6 @@ function Menus() {
                 <div className="menuList">
             <CategoryList/><br/>
                 </div>
-            <h5>BEST OFFERS</h5><br/>
             </center><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     </div>
     )

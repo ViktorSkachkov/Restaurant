@@ -17,7 +17,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AddReservationRequestUseCaseImp implements AddReservationRequestUseCase {
     private final ReservationRequestRepository reservationRequestRepository;
-    private final UserItemRepository userRepository;
+    private final UserItemRepository userItemRepository;
 
     @Transactional
     @Override
@@ -28,16 +28,32 @@ public class AddReservationRequestUseCaseImp implements AddReservationRequestUse
                 .build();
     }
     private ReservationRequest saveNewReservation(CreateReservationRequestRequestDTO createReservationRequestRequestDTO) {
-        Optional<User> userOptional = userRepository.findById(createReservationRequestRequestDTO.getClientId());
-        User user = userOptional.get();
-        ReservationRequest newReservationRequest = ReservationRequest.builder()
-                .numberOfPeople(createReservationRequestRequestDTO.getNumberOfPeople())
-                .preferences(createReservationRequestRequestDTO.getPreferences())
-                .approved("false")
-                .user(user)
-                .finish_time(createReservationRequestRequestDTO.getFinish_time())
-                .start_time(createReservationRequestRequestDTO.getStart_time())
-                .build();
+        Optional<User> userOptional;
+        User user = null;
+        if(createReservationRequestRequestDTO.getClientId() != 0) {
+            userOptional = userItemRepository.findById(createReservationRequestRequestDTO.getClientId());
+            user = userOptional.get();
+        }
+        ReservationRequest newReservationRequest;
+        if(user != null) {
+            newReservationRequest = ReservationRequest.builder()
+                    .numberOfPeople(createReservationRequestRequestDTO.getNumberOfPeople())
+                    .preferences(createReservationRequestRequestDTO.getPreferences())
+                    .approved("false")
+                    .user(user)
+                    .finish_time(createReservationRequestRequestDTO.getFinish_time())
+                    .start_time(createReservationRequestRequestDTO.getStart_time())
+                    .build();
+        }
+        else {
+            newReservationRequest = ReservationRequest.builder()
+                    .numberOfPeople(createReservationRequestRequestDTO.getNumberOfPeople())
+                    .preferences(createReservationRequestRequestDTO.getPreferences())
+                    .approved("false")
+                    .finish_time(createReservationRequestRequestDTO.getFinish_time())
+                    .start_time(createReservationRequestRequestDTO.getStart_time())
+                    .build();
+        }
         return reservationRequestRepository.save(newReservationRequest);
     }
 }

@@ -15,11 +15,6 @@ final class GetUsersUseCaseImp implements GetUsersUseCase {
     private AccessTokenDTO requestAccessToken;
     @Override
     public GetUsersResponseDTO getUsers(long userId) {
-        /*if (!requestAccessToken.hasRole(RoleEnum.WORKER.name())) {
-            if (requestAccessToken.getUserId() != userId) {
-                throw new UnauthorizedDataAccessException("USER_ID_NOT_FROM_LOGGED_IN_USER");
-            }
-        }*/
         List<UserDTO> userItems = userItemRepository.findAll()
                 .stream()
                 .map(UserDTOConverter::convertToDTO)

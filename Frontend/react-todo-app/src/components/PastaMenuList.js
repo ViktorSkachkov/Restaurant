@@ -37,12 +37,13 @@ const PastaMenuList = (loggedUser) => {
     let component;
     for(let i = 0; i < meals.length; i++) {
 let nav = "details/:{meals.id}";
+        console.log(meals.at(i).image);
         component = (
 
                 <div className="menuItem">
-                <img src={meals.at(i).image} alt=""/>
-                <br/>
                 <h3>{meals.at(i).name}</h3>
+                <br/>
+                <img src={meals.at(i).image} height="150px" width="150px" alt=""/>
                 <br/>
                 <p>{meals.at(i).description}</p>
                 <br/>
@@ -58,7 +59,7 @@ let nav = "details/:{meals.id}";
                 <br/>
                     <div>
                         <button key={meals.at(i).id}  className="detailsButton" onClick={() => {
-                            navigate(`/details/${meals.at(i).id}`, {
+                            navigate(`/details${meals.at(i).id}`, {
 
                             });
                         }}>Details ></button>
@@ -67,10 +68,11 @@ let nav = "details/:{meals.id}";
         )
         code.push(component);
     }
+
     return (
-        <>
+        <div className="menuContainer">
             {code}
-                </>
+                </div>
     )
 
 }

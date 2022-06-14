@@ -159,7 +159,7 @@ const OrdersEmployee = (loggedUser) => {
                 <>
                     <div className="orderItem">
                         <div>
-                            <img src={ordersByUser.at(c).meal.image} alt=""/>
+                            <img src={ordersByUser.at(c).meal.image} height="200px" width="200px"  alt=""/>
                         </div>
                         <div>
                             <br/><br/>

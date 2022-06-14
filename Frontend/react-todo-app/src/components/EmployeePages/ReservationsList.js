@@ -21,40 +21,6 @@ const ReservationsList = (loggedUser) => {
         getAssignedReservations();*/
         getAllReservations();
     },[loggedUser.loggedUser])
-    /*function getUnassignedReservations() {
-        var config = {
-            method: "get",
-            url: `http://localhost:8080/reservations/unapprovedReservationRequests`,
-            headers: {
-                "Authorization": `Bearer ${token}`,
-            },
-        };
-
-        axios(config)
-            .then(function (response) {
-                setReservations(response.data);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
-    function getAssignedReservations() {
-        var config = {
-            method: "get",
-            url: `http://localhost:8080/reservations/approvedReservationRequests`,
-            headers: {
-                "Authorization": `Bearer ${token}`,
-            },
-        };
-
-        axios(config)
-            .then(function (response) {
-                setReservations2(response.data);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }*/
     function getAllReservations() {
         var config = {
             method: "get",

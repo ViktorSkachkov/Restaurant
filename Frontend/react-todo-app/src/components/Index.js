@@ -40,6 +40,7 @@ import SuccessfullyAddedCartItem from "./SuccessfullyAddedCartItem";
 import CartList from "./CartList";
 import OrdersEmployee from "./EmployeePages/OrdersEmployee";
 import SuccessfullyCompletedOrder from "./EmployeePages/SuccessfullyCompletedOrder";
+import DisplayImage from "./DisplayImage";
 //import i18n from './i18n';
 
 const Index = () => {
@@ -115,13 +116,13 @@ const Index = () => {
                     <Route path="/logOut" element={<LogOut removeUser={removeUser} />}/>
                     <Route path="/cart" element={<Cart loggedUser={loggedUser} />}/>
                     <Route path="/register" element={<Register loggedUser={updateUser} />}/>
-                    <Route path="/details/:id" element={<Details loggedUser={loggedUser} />}/>
+                    <Route path="/details:id" element={<Details loggedUser={loggedUser}/>}/>
                     <Route path="/navigation" element={<Navigation loggedUser={loggedUser} />}/>
 
                     <Route path="/assignTables/:id" element={<AssignTables loggedUser={loggedUser} />}/>
                     <Route path="/reservationsEmployee" element={<ReservationsEmployee loggedUser={loggedUser}/>}/>
                     <Route path="/menusEmployee" element={<MenusEmployee loggedUser={updateUser}/>}/>
-                    <Route path="/updateMeal/:id" element={<UpdateMeal loggedUser={loggedUser}/>}/>
+                    <Route path="/updateMeal:id" element={<UpdateMeal loggedUser={loggedUser}/>}/>
                     <Route path="/addMeal" element={<AddMeal loggedUser={loggedUser}/>}/>
                     <Route path="/sales" element={<Sales loggedUser={loggedUser}/>}/>
                     <Route path="/ordersEmployee" element={<OrdersEmployee loggedUser={loggedUser}/>}/>
@@ -133,6 +134,7 @@ const Index = () => {
                     <Route path="/successfullyAddedReservation" element={<SuccessfullyAddedReservation loggedUser={loggedUser}/>}/>
                     <Route path="/successfullyAddedCartItem/:name/:number/:detailsId" element={<SuccessfullyAddedCartItem loggedUser={loggedUser}/>}/>
                     <Route path="/successfullyCompletedOrder" element={<SuccessfullyCompletedOrder loggedUser={loggedUser}/>}/>
+                    <Route path="/displayImage" element={<DisplayImage meal/>}/>
                 </Routes>
             </Router>
             <Footer/>

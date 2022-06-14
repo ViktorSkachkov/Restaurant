@@ -152,9 +152,11 @@ public class OrderController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_WORKER"})
     @GetMapping("/setAsOrderComplete/{id}")
-    public String setOrderAsComplete(@PathVariable(value = "id") final long id) {
+    public CartItem setOrderAsComplete(@PathVariable(value = "id") final long id) {
         setOrderAsCompleteUseCase.removeOrder(id);
-        return "answer";
+        return CartItem.builder()
+                .id(id)
+                .build();
     }
 
     @IsAuthenticated
@@ -167,8 +169,11 @@ public class OrderController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_WORKER"})
     @PostMapping("/createMeal")
-    public CreateMealResponseDTO createUser(@RequestBody @Valid CreateMealRequestDTO createMealRequestDTO) {
+    public CreateMealResponseDTO createMeal(@RequestBody @Valid CreateMealRequestDTO createMealRequestDTO) {
         return addMealUseCase.createMeal(createMealRequestDTO);
+        /*return CreateMealResponseDTO.builder()
+                .mealName("jjjj")
+                .build();*/
     }
 
     @IsAuthenticated
@@ -219,14 +224,6 @@ public Meal deleteMeal(@PathVariable int id) {
     @RolesAllowed({"ROLE_WORKER"})
     @GetMapping("/approvedAddings")
     public List<AddingCartRelationDTO> GetAdding_Cart_Relation() {
-        /*List<Adding_Cart_Relation> return_List = new ArrayList<>();
-        for(Adding_Cart_Relation adding_cart_relation: getAddingCartRelationsUseCase.getAddingCartRelations().getAddingDTOList()) {
-            if(adding_cart_relation.getApproved().equals("true")) {
-
-                return_List.add(adding_cart_relation);
-            }
-        }
-        return return_List;*/
         List<AddingCartRelationDTO> return_List = new ArrayList<>();
         for(AddingCartRelationDTO adding_cart_relation: getAddingCartRelationsDTOUseCase.getAddingCartRelationDTO()) {
             if(adding_cart_relation.getApproved().equals("true")) {

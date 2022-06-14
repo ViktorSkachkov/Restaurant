@@ -26,20 +26,18 @@ public class UserController {
        return addUserUseCase.createUser(createUserRequest);
     }
 
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_WORKER"})
+    @GetMapping()
+    public GetUsersResponseDTO GetUsers(/*@PathVariable(value = "id") final long id*/) {
+        return getUsersUseCase.getUsers(0);
+    }
 
-
-
-    /*@IsAuthenticated
-    @RolesAllowed({"ROLE_CLIENT"})
-    @PostMapping("updateUser")
-    public User updateUser(@RequestBody @Valid UpdateUserRequestDTO updateUserRequest) {
-        return updateUserUseCase.updateUser(updateUserRequest);
-    }*/
 
    @IsAuthenticated
    @RolesAllowed({"ROLE_WORKER"})
     @GetMapping("/clients")
-    public List<UserDTO> GetClients(/*@PathVariable(value = "id") final long id*/) {
+    public List<UserDTO> GetClients() {
 
         List<UserDTO> clients = new ArrayList<>();
         int id = 0;
@@ -56,7 +54,7 @@ public class UserController {
     public /*Optional<*/UserDTO/*>*/ GetUser(@PathVariable(value = "id") final long id) {
 
         UserDTO user = new UserDTO();
-        for(UserDTO u : getUsersUseCase.getUsers(id).getUsers()) {
+        for(UserDTO u : getUsersUseCase.getUsers(0).getUsers()) {
             if(u.getId() == id) {
                 user = u;
             }
@@ -75,14 +73,19 @@ public class UserController {
             }
         }
         return workers;
-        //return getWorkersUseCaseImp.GetWorkers();
     }
-    /*@GetMapping("{username}/{password}")
-    public UserDTO GetUser(@PathVariable String username,@PathVariable String password) {
-        return getUserUseCaseImp.GetUser(username, password);
+
+    /*@IsAuthenticated
+    @RolesAllowed({"ROLE_WORKER", "ROLE_CLIENT"})
+    @GetMapping("/specific/{index}")
+    public UserDTO test(@PathVariable(value = "index") final long index) {
+
+        UserDTO user = new UserDTO();
+        for(UserDTO u : getUsersUseCase.getUsers(0).getUsers()) {
+            if(u.getId() == index) {
+                user = u;
+            }
+        }
+        return user;
     }*/
-/*@GetMapping("verification/{username}/{password}")
-    public UserDTO VerifyAccount(@PathVariable String username, @PathVariable String password) {
-    return verifyAccountUseCaseImp.VerifyAccount(username, password);
-}*/
 }

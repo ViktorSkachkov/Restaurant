@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+ web:
+  build: ./Frontend/react-todo-app
+  container_name: Frontend-Side
+  ports: 
+  - 3000:3000
+ api:
+  build: ./Project/Individual-Track-Project/demo
+  container_name: Backend-Side
+  ports: 
+  - 8080:8080

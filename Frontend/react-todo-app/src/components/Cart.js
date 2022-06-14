@@ -227,6 +227,8 @@ function initialAddress() {
     let cartItem;
     let decrease = "<";
     let increase = ">";
+    console.log("cartItems");
+    console.log(cartItems);
     //function fillWithCartItems() {
         for (let i = 0; i < cartItems.length; i++) {
             addingElements = [];
@@ -250,8 +252,7 @@ function initialAddress() {
                 <>
                 <div className="displayCartItems">
                     <div className="imageAndName">
-                        <img src={logo} className="cartImage" alt=""/>
-                        <p>{cartItems.at(i).meal.name}</p>
+                        <img src={cartItems.at(i).meal.image} height="60px" width="60px" alt=""/> <p className="cartTitle">{cartItems.at(i).meal.name}</p>
                     </div>
                     <div>
                         {addingElements}

@@ -36,7 +36,7 @@ public class CartItemDTOConverter {
         MealDTO mealDTO = MealDTO.builder()
                 .id(Math.toIntExact(cartItem.getMeal().getId()))
                 .category(categoryDTO)
-                .image(cartItem.getMeal().getImage())
+                .image(cartItem.getMeal().getImage().toString())
                 .name(cartItem.getMeal().getName())
                 .description(cartItem.getMeal().getDescription())
                 .weight(cartItem.getMeal().getWeight())

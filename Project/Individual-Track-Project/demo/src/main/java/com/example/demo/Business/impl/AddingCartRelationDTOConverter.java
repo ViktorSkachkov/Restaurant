@@ -29,7 +29,7 @@ public class AddingCartRelationDTOConverter {
         MealDTO mealDTO = MealDTO.builder()
                 .id(Math.toIntExact(addingCartRelation.getCartItem().getMeal().getId()))
                 .category(categoryDTO)
-                .image(addingCartRelation.getCartItem().getMeal().getImage())
+                .image(addingCartRelation.getCartItem().getMeal().getImage().toString())
                 .name(addingCartRelation.getCartItem().getMeal().getName())
                 .description(addingCartRelation.getCartItem().getMeal().getDescription())
                 .weight(addingCartRelation.getCartItem().getMeal().getWeight())

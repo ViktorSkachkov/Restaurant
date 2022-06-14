@@ -72,14 +72,15 @@ console.log(loggedUser);
                 <h1>MAKE RESERVATION</h1><br/><br/>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="numberOfPeople" className="formLabelNumberOfPeople">Number Of People</label><br/><br/>
-                    <input onChange={onChangeNumberOfPeople} type="number" className="Label"/><br/><br/>
+                    <input onChange={onChangeNumberOfPeople} name="numberOfPeople" type="number" className="Label"/><br/><br/>
                     <label htmlFor="startTime" className="formLabelStartTime">Start Time</label><br/><br/>
-                    <input onChange={onChangeStartTime} type="datetime-local" className="Label"/><br/><br/>
+                    <input onChange={onChangeStartTime} name="startTime" type="datetime-local" className="Label"/><br/><br/>
                     <label htmlFor="finishTime" className="formLabelFinishTime">Finish Time</label><br/><br/>
-                    <input onChange={onChangeFinishTime} type="datetime-local" className="Label"/><br/><br/>
+                    <input onChange={onChangeFinishTime} name="finishTime" type="datetime-local" className="Label"/><br/><br/>
                     <label for="preferences" className="formLabelPreferences">Preferences</label><br/><br/>
                     <select
                         className="Label"
+                        name="preferences"
                         onChange={onChangePreferences}
                     >
                         <option value={"None"}>None</option>

@@ -131,6 +131,9 @@
   /*padding-left: 1vw;
   padding-right: 1vw;*/
 }
+/*.menuContainer {
+  display: flex;
+}*/
 .menuItem {
   width: 15vw;
   border-style: solid;
@@ -139,12 +142,13 @@
 .menuItem * {
   margin: 5px;
 }
-/*.menuItem {
-  display: inline-block;
-}*/
+
 .menuList .menuItem {
   display: inline-block;
-  margin: 2vw;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 
 .footerLine {
@@ -298,6 +302,7 @@
 .cutlaryAndPrice {
   display: flex;
   justify-content: space-between;
+  width: 1200px;
 }
 .displayFinalPrice {
   font-size: 1.5rem;
@@ -318,6 +323,7 @@
 .displayCartItems {
   display: flex;
   justify-content: space-between;
+  width: 1200px;
   border-style: solid;
   border-radius: 1px;
 }

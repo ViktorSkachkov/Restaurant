@@ -87,20 +87,20 @@ const MenusEmployee = (updateUser) => {
             reservationItem = (
                 <div className="menuElement">
                     <div>
-                        <img src={logo} width="200px" alt=""/>
+                        <img src={meals.at(i).image} height="150px" width="150px" alt=""/>
                     </div>
-                    <div className="ingredientsMiddle">
-                        <p>{meals.at(i).name}<br/>
+                    <div className="ingredientsMiddle"><br/><br/>
+                        <p>{meals.at(i).name}<br/><br/>
                             Ingredients: <br/>
                             {meals.at(i).description}</p>
                     </div>
                     <div>
                         <div>
                             <button className="viewMenusButton" onClick={() => {
-                                navigate(`/updateMeal/${meals.at(i).id}`, {});
+                                navigate(`/updateMeal${meals.at(i).id}`, {});
                             }}>
                                 Update
-                            </button>
+                            </button><br/><br/><br/><br/><br/>
                             <button className="viewMenusButton" onClick={() => deleteMeal(meals.at(i).id)}>
                                 Delete
                             </button>
@@ -114,20 +114,20 @@ const MenusEmployee = (updateUser) => {
             reservationItem = (
                 <div className="menuElement">
                     <div>
-                        <img src={logo} width="200px" alt=""/>
+                        <img src={meals.at(i).image} height="150px" width="150px" alt=""/>
                     </div>
-                    <div className="ingredientsMiddle">
-                        <p>{meals.at(i).name}<br/>
+                    <div className="ingredientsMiddle"><br/><br/>
+                        <p>{meals.at(i).name}<br/><br/>
                             Ingredients: <br/>
                             {meals.at(i).description}</p>
                     </div>
                     <div>
                         <div>
                             <button className="viewMenusButton" onClick={() => {
-                                navigate(`/updateMeal/${meals.at(i).id}`, {});
+                                navigate(`/updateMeal${meals.at(i).id}`, {});
                             }}>
                                 Update
-                            </button>
+                            </button><br/><br/><br/><br/><br/>
                             <button className="viewMenusButton" onClick={() => deleteMeal(meals.at(i).id)}>
                                 Delete
                             </button>
@@ -141,20 +141,20 @@ const MenusEmployee = (updateUser) => {
             reservationItem = (
                 <div className="menuElement">
                     <div>
-                        <img src={logo} width="200px" alt=""/>
+                        <img src={meals.at(i).image} height="150px" width="150px" alt=""/>
                     </div>
-                    <div className="ingredientsMiddle">
-                        <p>{meals.at(i).name}<br/>
+                    <div className="ingredientsMiddle"><br/><br/>
+                        <p>{meals.at(i).name}<br/><br/>
                             Ingredients: <br/>
                             {meals.at(i).description}</p>
                     </div>
                     <div>
                         <div>
                             <button className="viewMenusButton" onClick={() => {
-                                navigate(`/updateMeal/${meals.at(i).id}`, {});
+                                navigate(`/updateMeal${meals.at(i).id}`, {});
                             }}>
                                 Update
-                            </button>
+                            </button><br/><br/><br/><br/><br/>
                             <button className="viewMenusButton" onClick={() => deleteMeal(meals.at(i).id)}>
                                 Delete
                             </button>
@@ -168,20 +168,20 @@ const MenusEmployee = (updateUser) => {
             reservationItem = (
                 <div className="menuElement">
                     <div>
-                        <img src={logo} width="200px" alt=""/>
+                        <img src={meals.at(i).image} height="150px" width="150px" alt=""/>
                     </div>
-                    <div className="ingredientsMiddle">
-                        <p>{meals.at(i).name}<br/>
+                    <div className="ingredientsMiddle"><br/><br/>
+                        <p>{meals.at(i).name}<br/><br/>
                             Ingredients: <br/>
                             {meals.at(i).description}</p>
                     </div>
                     <div>
                         <div>
                             <button className="viewMenusButton" onClick={() => {
-                                navigate(`/updateMeal/${meals.at(i).id}`, {});
+                                navigate(`/updateMeal${meals.at(i).id}`, {});
                             }}>
                                 Update
-                            </button>
+                            </button><br/><br/><br/><br/><br/>
                             <button className="viewMenusButton" onClick={() => deleteMeal(meals.at(i).id)}>
                                 Delete
                             </button>
@@ -222,6 +222,7 @@ const MenusEmployee = (updateUser) => {
                     <label htmlFor="username">Search Engine</label><br/><br/>
                     <select
                         className="Label"
+                        name="groupByCategory"
                         onChange={onChangeCategory}
                     >
                         <option value={"All"}>All</option>

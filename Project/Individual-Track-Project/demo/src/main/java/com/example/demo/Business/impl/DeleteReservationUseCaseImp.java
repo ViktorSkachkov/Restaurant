@@ -27,7 +27,6 @@ public class DeleteReservationUseCaseImp implements DeleteReservationUseCase {
                 reservationRequest = rr;
             }
         }
-        this.reservationRepository.delete(reservationRequest);
         List<Reservation_Table_Relation> reservation_table_relationList = new ArrayList<>();
         for(Reservation_Table_Relation reservation_table_relation : reservation_Table_RelationRepository.findAll())
         {
@@ -38,6 +37,7 @@ public class DeleteReservationUseCaseImp implements DeleteReservationUseCase {
         for(Reservation_Table_Relation reservation_table_relation : reservation_table_relationList) {
             reservation_Table_RelationRepository.delete(reservation_table_relation);
         }
+        this.reservationRepository.delete(reservationRequest);
         return reservationRequest;
     }
 }

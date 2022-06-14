@@ -63,9 +63,9 @@ const LogIn = (updateUser) => {
             <p>Fill in your personal information</p><br/><br/><br/>
             <form onSubmit={handleSubmit}>
                 <label for="username" className="formLabelUsername">Username</label><br/>
-                <input type="text" onChange={onChangeUsername} className="Label"/><br/><br/><br/><br/>
+                <input type="text" name="username" onChange={onChangeUsername} className="Label"/><br/><br/><br/><br/>
                 <label for="password" className="formLabelPassword">Password</label><br/>
-                <input type="password" onChange={onChangePwd} className="Label"/>
+                <input type="password" name="password"  onChange={onChangePwd} className="Label"/>
                 <br/><br/><br/><br/>
                 <button type="submit" className="normalButton">Submit</button>
             </form>
@@ -79,6 +79,7 @@ const LogIn = (updateUser) => {
             </center>
             <br/><br/><br/><br/><br/><br/><br/>
         </div>
+
     )
 }
 export default LogIn

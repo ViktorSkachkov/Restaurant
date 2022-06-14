@@ -1,5 +1,7 @@
 package com.example.demo.Business;
 
+import com.example.demo.RepositoryClasses.CartItem;
+
 public interface DecreaseNumberOfItemsUseCase {
-    void decrease(Long id);
+    CartItem decrease(Long id);
 }

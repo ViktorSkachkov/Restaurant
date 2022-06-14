@@ -137,7 +137,7 @@ function assignTable(tableId) {
         <div className="mainBody">
             <br/>
             <div className="backLine">
-                <button onClick={() => {
+                <button className="back"  onClick={() => {
                     navigate("/reservationsEmployee");
                 }}>Go Back</button>
             </div>
@@ -160,7 +160,7 @@ function assignTable(tableId) {
             <div className="mainBody">
                 <br/>
                 <div className="backLine">
-                    <button onClick={() => {
+                    <button className="back" onClick={() => {
                         navigate("/reservationsEmployee");
                     }}>Go Back</button>
                 </div>

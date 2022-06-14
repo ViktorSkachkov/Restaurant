@@ -16,11 +16,12 @@ public class DecreaseNumberOfItemsUseCaseImp implements DecreaseNumberOfItemsUse
 
     @Transactional
     @Override
-    public void decrease(Long id) {
+    public CartItem decrease(Long id) {
         Optional<CartItem> cartItemOptional = cartItemRepository.findById(id);
         CartItem cartItem = cartItemOptional.get();
         int number = cartItem.getNumberOfItems() - 1;
         cartItem.setNumberOfItems(number);
-        cartItemRepository.save(cartItem);
+        CartItem cartItem1 = cartItemRepository.save(cartItem);
+        return cartItem1;
     }
 }

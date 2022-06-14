@@ -225,6 +225,9 @@
     padding-bottom: 1rem;
     padding-right: 1vw;
 }
+.cartTitle {
+    padding-left: 20px;
+}
 
 
 
@@ -232,13 +235,23 @@
     border-style: solid;
     border-radius: 0.5px;
     border-color: #BF0000;
-    width: 55%;
+    width: 1000px;
 }
 .orderItem {
-    width: 50vw;
+    width: 800px;
     border-style: solid;
     border-radius: 0.5px;
     margin: 1em;
     display: flex;
     justify-content: space-around;
+}
+
+
+
+.sendName {
+    background-color: #BF0000;
+    color: white;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 2px;
 }

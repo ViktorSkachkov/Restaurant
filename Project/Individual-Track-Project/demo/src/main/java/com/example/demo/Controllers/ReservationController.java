@@ -14,13 +14,9 @@ import javax.validation.Valid;
 import java.util.*;
 @RestController
 @CrossOrigin(origins="http://localhost:3000/", allowedHeaders = "*")
-@RequestMapping("/reservations/")
+@RequestMapping("/reservations")
 @RequiredArgsConstructor
 public class ReservationController {
-    /*private ReservationService ra = new ReservationService();
-    private MockReservationService mockReservationAdministration;
-    private GetUnapprovedReservationRequestsUseCaseImp getUnapprovedReservationRequestsUseCaseImp = new GetUnapprovedReservationRequestsUseCaseImp();
-    private GetApprovedReservationRequestsUseCaseImp getApprovedReservationRequestsUseCaseImp = new GetApprovedReservationRequestsUseCaseImp();*/
 
     private final GetTableItemsUseCase getTableItemsUseCase;
     private final GetReservationRequestUseCase getReservationRequestUseCase;
@@ -30,17 +26,23 @@ public class ReservationController {
     private final AssignTableUseCase assignTableUseCase;
     private final AddReservationRequestUseCase addReservationRequestUseCase;
 
+   /* @IsAuthenticated
+    @RolesAllowed({"ROLE_WORKER"})
+    @GetMapping("/test")
+    public String test() {
+        return "answer";
+    }*/
+
     @IsAuthenticated
     @RolesAllowed({"ROLE_WORKER"})
-    @GetMapping("all")
+    @GetMapping("/all")
     public List<ReservationRequestDTO> GetAll()
     {
         return getReservationRequestUseCase.getReservationRequests().getReservationRequests();
-        //return getReservationRequestUseCaseImp.GetReservationRequest(reservationID);
     }
     @IsAuthenticated
     @RolesAllowed({"ROLE_WORKER"})
-    @GetMapping("reservationItem/{id}")
+    @GetMapping("/reservationItem/{id}")
     public ReservationRequestDTO GetReservationRequest(@PathVariable int id)
     {
         ReservationRequestDTO reservationRequest = null;
@@ -59,37 +61,18 @@ public class ReservationController {
     }
     @IsAuthenticated
     @RolesAllowed({"ROLE_WORKER"})
-    @GetMapping("assignTable/{tableId}/{reservationId}")
+    @GetMapping("/assignTable/{tableId}/{reservationId}")
     public int AssignTable(@PathVariable(value = "tableId") final long tableId,
                             @PathVariable(value = "reservationId") final long reservationId)
     {
         assignTableUseCase.reassignTable(tableId, reservationId);
         return (int) reservationId;
     }
-    /*@GetMapping("tables")
-    public List<TableItemDTO> GetTables()
-    {
-        return getTablesUseCaseImp.GetTables();
-    }*/
-    /*@GetMapping("tables")
-    public ResponseEntity<GetTableItemsResponseDTO> getTableItems()
-    {
-        return ResponseEntity.ok(getTableItemsUseCase.getTableItems());
-    }*/
     @IsAuthenticated
     @RolesAllowed({"ROLE_WORKER"})
-    @GetMapping("tables/{id}")
-    public List<TableItemDTO> getTableItems(@PathVariable(value = "id") final long id/*@RequestBody @Valid AssignedTables assignedTables*/)
+    @GetMapping("/tables/{id}")
+    public List<TableItemDTO> getTableItems(@PathVariable(value = "id") final long id)
     {
-       /* List<TableItemDTO> tableItemDTOS = getTableItemsUseCase.getTableItems().getTableItems();
-         for(TableItemDTO tableItemDTO: tableItemDTOS) {
-             for(int id: assignedTables.getIds()) {
-                 if(id == tableItemDTO.getId()) {
-                     tableItemDTOS.remove(tableItemDTO);
-                 }
-             }
-         }
-         return tableItemDTOS;*/
       int index = 0;
         for(Reservation_Table_Relation rr : getReservationTableRelationsUseCase.getReservationTableRelations((int) id).getReservation_table_relationList()) {
             if(rr.getReservationRequest().getId() == id) {
@@ -98,17 +81,17 @@ public class ReservationController {
         }
         List<TableItemDTO> tableItemDTOS = new ArrayList<>();
         for(TableItemDTO tableItemDTO :getTableItemsUseCase.getTableItems().getTableItems()) {
-            if(tableItemDTO.getId() != index) {
+            if(tableItemDTO.getId() != 0/*index*/) {
                 tableItemDTOS.add(tableItemDTO);
             }
         }
         return tableItemDTOS;
-        //return getTableItemsUseCase.getTableItems().getTableItems();
+
     }
     @IsAuthenticated
     @RolesAllowed({"ROLE_WORKER"})
-    @GetMapping("relations/{id}")
-    public TableItem getRelation(@PathVariable(value = "id") final long id) {
+    @GetMapping("/relations/{id}")
+    public TableItem getRelation(@PathVariable(value = "id") final long id ) {
         Reservation_Table_Relation reservation_table_relation = null;
         for(Reservation_Table_Relation rr : getReservationTableRelationsUseCase.getReservationTableRelations((int) id).getReservation_table_relationList()) {
             if(rr.getReservationRequest().getId() == id) {
@@ -119,34 +102,34 @@ public class ReservationController {
     }
     @IsAuthenticated
     @RolesAllowed({"ROLE_WORKER"})
-    @GetMapping("tableItem/{tableID}")
-    public TableItemDTO GetTable(@PathVariable int tableID)
+    @GetMapping("/tableItem/{id}")
+    public TableItemDTO GetTable(@PathVariable(value = "id") final int id)
     {
        TableItemDTO table = null;
-        for(TableItemDTO rr : getTableItemsUseCase.getTableItems().getTableItems()) {
-            if(rr.getId() == tableID) {
+       GetTableItemsResponseDTO getTableItemsResponseDTO = getTableItemsUseCase.getTableItems();
+        for(TableItemDTO rr : getTableItemsResponseDTO.getTableItems()) {
+            if(rr.getId() == id) {
                 table = rr;
             }
         }
         return table;
-        //return getTableUseCaseImp.GetTable(tableID);
+        /*TableItemDTO tableItemDTO = TableItemDTO.builder()
+                .id(1)
+                .location("Inside")
+                .seats(4)
+                .build();
+        return  tableItemDTO;*/
     }
     @IsAuthenticated
     @RolesAllowed({"ROLE_WORKER"})
-    @GetMapping("deleteReservation/{id}")
+    @GetMapping("/deleteReservation/{id}")
     public ReservationRequest deleteReservation(@PathVariable(value = "id") final long id) {
         return deleteReservationUseCase.deleteReservation(id);
     }
 
-   /* @IsAuthenticated
-    @RolesAllowed({"ROLE_WORKER"})
-    @GetMapping("getAssignedTables/{id}")
-    public List<Reservation_Table_Relation> getAssignedTables(@PathVariable(value = "id") final int id) {
-        return getReservationTableRelationsUseCase.getReservationTableRelations(id).getReservation_table_relationList();
-    }*/
     @IsAuthenticated
     @RolesAllowed({"ROLE_WORKER"})
-    @GetMapping("unapprovedReservationRequests")
+    @GetMapping("/unapprovedReservationRequests")
     public List<ReservationRequestDTO> GetUnapprovedReservationRequests() {
         List<ReservationRequestDTO> reservationRequestList = new ArrayList<>();
         for(ReservationRequestDTO rr : getReservationRequestUseCase.getReservationRequests().getReservationRequests()) {
@@ -159,7 +142,7 @@ public class ReservationController {
     }
     @IsAuthenticated
     @RolesAllowed({"ROLE_WORKER"})
-    @GetMapping("approvedReservationRequests")
+    @GetMapping("/approvedReservationRequests")
     public List<ReservationRequestDTO> GetApprovedReservationRequests() {
         List<ReservationRequestDTO> reservationRequestList = new ArrayList<>();
         for(ReservationRequestDTO rr : getReservationRequestUseCase.getReservationRequests().getReservationRequests()) {

@@ -8,7 +8,7 @@ const SuccessfullyUpdatedMeal = (loggedUser) => {
         <div className="mainBody">
             <center><br/><br/><br/><br/>
                 <h1>{params.name} Successfully Updated</h1><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                <button  className="normalButton" onClick={() => {navigate("/menusEmployee")}}>Proceed</button>
+                <button className="normalButton" onClick={() => {navigate("/menusEmployee")}}>Proceed</button>
             </center><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         </div>
     )

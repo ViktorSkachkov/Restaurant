@@ -24,26 +24,13 @@ private final UserRoleRepository userRoleRepository;
         LoginResponseDTO loginResponseDTO = loginUseCase.login(loginRequestDTO);
         return /*ResponseEntity.ok(*/loginResponseDTO/*)*/;
     }
-    /*@PostMapping("{id}/{username}")
-    public ResponseEntity<AccessTokenDTO> getToken(@PathVariable(value = "id") final long id,
-                                                   @PathVariable(value = "username") final String username) {
-        AccessTokenDTO accessTokenDTO = loginUseCase.generateToken(id, username);
-        return ResponseEntity.ok(accessTokenDTO);
-    }*/
     @GetMapping("/roles")
     public List<UserRole> getUserRoles() {
         List<String> roles = new ArrayList<>();
-       /* for(UserRole userRole : userRoleRepository.findAll())
-        {
-            if(userRole.getUserId() == 8) {
-                if(userRole.getRole().equals("CLIENT")) {
-                    roles.add(RoleEnum.CLIENT.name());
-                }
-                if(userRole.getRole().equals("WORKER")) {
-                    roles.add(RoleEnum.WORKER.name());
-                }
-            }
-        }*/
         return userRoleRepository.findAll();
+    }
+    @GetMapping("/test")
+    public String Test() {
+        return "test";
     }
 }

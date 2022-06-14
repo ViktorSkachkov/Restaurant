@@ -20,7 +20,7 @@ import java.util.List;
 public class AddUserUseCaseImp implements AddUserUseCase {
     private final UserItemRepository userRepository;
     private final UserRoleRepository userRoleRepository;
-    private final GetUsersUseCase getUsersUseCase;
+    //private final GetUsersUseCase getUsersUseCase;
 
     @Transactional
     @Override
@@ -34,9 +34,10 @@ public class AddUserUseCaseImp implements AddUserUseCase {
 
 
     private User saveNewUser(CreateUserRequestDTO requestDTO) {
-        List<UserDTO> listOfUsers = getUsersUseCase.getUsers(0).getUsers();
+        //List<UserDTO> listOfUsers = getUsersUseCase.getUsers(0).getUsers();
+        /*List<User> listOfUsers = userRepository.findAll();
         int lastIndex = listOfUsers.size() - 1;
-        Long index = Long.valueOf(listOfUsers.get(lastIndex).getId() + 1);
+        Long index = Long.valueOf(listOfUsers.get(lastIndex).getId() + 1);*/
         User newUser = User.builder()
                 .category(requestDTO.getCategory())
                 .address(requestDTO.getAddress())
@@ -47,11 +48,13 @@ public class AddUserUseCaseImp implements AddUserUseCase {
                 .firstName(requestDTO.getFirstName())
                 .lastName(requestDTO.getLastName())
                 .build();
+        User u = userRepository.save(newUser);
         UserRole newUserRole = UserRole.builder()
                 .role(requestDTO.getCategory())
-                .userId(index)
+                .userId(u.getId())
                 .build();
         userRoleRepository.save(newUserRole);
-       return userRepository.save(newUser);
+        return u;
+       //return userRepository.save(newUser);
     }
 }

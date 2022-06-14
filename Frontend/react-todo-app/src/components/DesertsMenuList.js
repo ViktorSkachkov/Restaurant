@@ -35,9 +35,9 @@ const DesertsMenuList = (loggedUser) => {
         component = (
 
             <div className="menuItem">
-                <img src={meals.at(i).image} alt=""/>
-                <br/>
                 <h3>{meals.at(i).name}</h3>
+                <br/>
+                <img src={meals.at(i).image} height="150px" width="150px" alt=""/>
                 <br/>
                 <p>{meals.at(i).description}</p>
                 <br/>
@@ -53,7 +53,7 @@ const DesertsMenuList = (loggedUser) => {
                 <br/>
                 <div>
                     <button key={meals.at(i).id}  className="detailsButton" onClick={() => {
-                        navigate(`/details/${meals.at(i).id}`, {
+                        navigate(`/details${meals.at(i).id}`, {
 
                         });
                     }}>Details ></button>

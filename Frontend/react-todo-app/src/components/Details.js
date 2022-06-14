@@ -3,12 +3,9 @@ import PastaMenuList from "./PastaMenuList";
 import axios from "axios";
 import {useNavigate, useParams} from "react-router-dom";
 import Cookies from "universal-cookie";
+import DisplayImage from "./DisplayImage";
 
 const Details = (loggedUser) => {
-    let contextTypes = {
-        router: () => true,
-    }
-
 
     let navigate = useNavigate();
     const [meal, setMeal] = useState();
@@ -56,22 +53,6 @@ const Details = (loggedUser) => {
                 console.log(error);
             });
     }
-
-
-    /*function displayPrice() {
-        let finalPrice = 0;
-        if(meal != null) {
-
-                finalPrice += meal.price * numberOfItems;
-
-            for(let i = 0; i < addings.length; i++) {
-                if(addingsCheck.includes(addings.at(i).id)) {
-                    finalPrice += addings.at(i).price;
-                }
-            }
-            setPrice(finalPrice);
-        }
-    }*/
 
 
     useEffect(() => {
@@ -125,22 +106,6 @@ const Details = (loggedUser) => {
         console.log("addingsCheck");
         console.log(addingsCheck);
     }
-
-
-
-
-
-
-    /*function displayInitialPrice() {
-        let finalPrice = 0;
-        if(meal != null) {
-            finalPrice = meal.price;
-            setPrice(finalPrice);
-        }
-    }
-    useEffect(() => {
-        displayInitialPrice();
-    }, [randomItem])*/
 
 
 
@@ -245,33 +210,35 @@ const Details = (loggedUser) => {
                 </div>
             )
         }
+        console.log(meal.image);
         return (
             <div className="mainBody">
                 <br/>
                 <center>
                     {backButton}
-                <h2 className="menuTitle">{meal.name.toUpperCase()}</h2><br/>
-                  <div className="allDetails">
-                      <div>
-                          <img src="" alt=""/>
-                      </div>
-                      <div>
-                      <p>{meal.description}</p><br/><br/>
-                          <h2>ADDITIONS</h2><br/><br/>
-                          <div className="additionsBox">
-                              {code}
-                          </div>
-                </div>
-              </div><br/><br/><br/>
-                  <div className="quantityAndPrice">
-                      {finalPrice}
-                      <div><button className="arrowButton" onClick={decreaseNumber}>{decrease}</button> <input type="number" value={numberOfItems} className="mealQuantity"/> <button className="arrowButton" onClick={increaseNumber}>{increase}</button></div>
-                  </div><br/><br/>
+                    <h2 className="menuTitle">{meal.name.toUpperCase()}</h2><br/>
+                    <p>{meal.description}</p><br/><br/>
+                    <img src={meal.image} height="400px" width="400px" alt=""/><br/><br/>
+                    <div className="allDetails">
+                        <div>
+
+                        </div>
+                        <div>
+                            <h2>ADDITIONS</h2><br/><br/>
+                            <div className="additionsBox">
+                                {code}
+                            </div>
+                        </div>
+                    </div><br/><br/><br/>
+                    <div className="quantityAndPrice">
+                        {finalPrice}
+                        <div><button className="arrowButton" onClick={decreaseNumber}>{decrease}</button> <input type="number" value={numberOfItems} className="mealQuantity"/> <button className="arrowButton" onClick={increaseNumber}>{increase}</button></div>
+                    </div><br/><br/>
                     <form onSubmit={addToCart}>
                         <button type="submit" className="normalButton">Add To Cart</button><br/><br/>
                     </form>
                     <p className="WarningMessage">{warning}</p>
-              </center><br/><br/><br/><br/>
+                </center><br/><br/><br/><br/>
             </div>
         )
     }

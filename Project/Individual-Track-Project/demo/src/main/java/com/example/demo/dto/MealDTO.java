@@ -1,5 +1,6 @@
 package com.example.demo.dto;
 
+import com.mysql.cj.jdbc.Blob;
 import lombok.*;
 
 @Builder

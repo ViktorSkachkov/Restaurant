@@ -57,10 +57,12 @@ const CategoryList = (loggedUser) => {
                 }}>VIEW MORE ></button>);
                 break;
         }
-            component = (
+        /*let stringImage = categories.at(i).image;
+        let image = require(`${stringImage}`);*/
+        component = (
                 <>
                     <div className="menuItem" key={categories.at(i).id}>
-                        <img src={categories.at(i).image} alt=""/>
+                        <img src={categories.at(i).image} height="100vh" width="100vw" alt=""/>
                         <br/>
                         <h3>{categories.at(i).name}</h3>
                         <br/>

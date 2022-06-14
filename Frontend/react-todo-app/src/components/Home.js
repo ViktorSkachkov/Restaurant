@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Link, NavLink, BrowserRouter as Router, Routes, Route, useNavigate} from "react-router-dom";
-import Footer from "./Footer";
+/*import Footer from "./Footer";
 import InfoForPizzaMeal from "./InfoForPizzaMeal";
 import HowToOrder from "./HowToOrder";
 import AboutUs from "./AboutUs";
@@ -13,22 +13,60 @@ import PizzaMenus from "./PizzaMenus";
 import SaladsMenus from "./SaladsMenus";
 import DesertsMenus from "./DesertsMenus";
 import Details from "./Details";
-import Cart from "./Cart";
+import Cart from "./Cart";*/
 import pizzaImage from "./pictures/Pizza.jpg"
 import pizzaImage2 from "./pictures/People_Eating_Pizza.jpg"
+//import testImage from ".../public/logo192.png"
 import axios from "axios";
 import Cookies from "universal-cookie";
+import SockJS from 'sockjs-client';
+import Stomp from 'stompjs';
+const ENDPOINT = "http://localhost:8080/ws";
 
 const Home = (props) => {
+    const [stompClient, setStompClient] = useState(null);
+    const [msgToSend, setSendMessage] = useState("Enter your message here!");
+
+    function startWebsockets() {
+        const socket = SockJS(ENDPOINT);
+        const stompClient = Stomp.over(socket);
+        stompClient.connect({}, () => {
+            stompClient.subscribe('/topic/greetings', (data) => {
+                console.log(data);
+                onMessageReceived(data);
+            });
+        });
+        setStompClient(stompClient);
+    }
+
+    function sendMessage() {
+        stompClient.send("/app/hello", {}, JSON.stringify({'name': msgToSend}));
+
+    };
+
+    function onMessageReceived(data)
+    {
+        const result=  JSON.parse(data.body);
+        alert(result.content)
+    };
+
+
+
+
+
+
+
     let navigate = useNavigate();
     const [user, setUser] = useState(props.loggedUser);
     const [categories, setCategories] = useState([]);
+
 
     const cookies = new Cookies();
     const token = cookies.get("accessToken");
     useEffect(() => {
         setUser(props.loggedUser);
         getUser();
+        startWebsockets();
     }, [props.loggedUser]);
 
     async function getUser() {
@@ -88,7 +126,7 @@ const Home = (props) => {
                 component = (
                     <>
                         <div className="menuItem" key={categories.at(i).id}>
-                            <img src={categories.at(i).image} alt=""/>
+                            <img src={categories.at(i).image} height="100vh" width="100vw" alt=""/>
                             <br/>
                             <h3>{categories.at(i).name}</h3>
                             <br/>
@@ -105,7 +143,7 @@ const Home = (props) => {
         return (
             <div className="mainBody">
                 <center>
-                    <img src={pizzaImage} className="homeImage"/><br/><br/>
+                    <img src={pizzaImage}  className="homeImage"/><br/><br/>
                     <h2>ABOUT US</h2><br/>
                     <div className="aboutUs">
                         <div className="Main_Page_Image_Container">
@@ -122,6 +160,10 @@ const Home = (props) => {
                     <div className="menuList">
                         {code}
                     </div>
+                    <br></br>
+                    <p>Type your name here and send it, so the application can greet you!</p><br/>
+                    <input onChange={(event) => setSendMessage(event.target.value)}></input><br/><br/>
+                    <button className="sendName" onClick={sendMessage}>Send Your Name</button>
                 </center>
                 <br/><br/>
             </div>

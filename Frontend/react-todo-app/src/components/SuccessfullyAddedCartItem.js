@@ -8,7 +8,7 @@ const SuccessfullyAddedCartItem = (loggedUser) => {
         <div className="mainBody">
             <center><br/><br/><br/><br/>
                 <h1>{params.number} Units Of {params.name} Successfully Added To Cart</h1><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                <button  className="normalButton" onClick={() => {navigate(`/details/${params.detailsId}`)}}>Proceed</button>
+                <button  className="normalButton" onClick={() => {navigate(`/menus`)}}>Proceed</button>
             </center><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         </div>
     )

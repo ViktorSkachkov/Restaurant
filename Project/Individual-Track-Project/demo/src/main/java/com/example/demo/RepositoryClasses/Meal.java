@@ -1,5 +1,6 @@
 package com.example.demo.RepositoryClasses;
 
+import com.mysql.cj.jdbc.Blob;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
@@ -24,8 +25,8 @@ public class Meal {
     @JoinColumn(name = "category")
     private Category category;
 
-    @NotBlank
-    @Column(name = "image")
+    @Lob @Basic(fetch = FetchType.LAZY)
+    @Column(name = "image", length=100000)
     private String image;
 
     @NotBlank

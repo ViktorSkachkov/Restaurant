@@ -29,7 +29,7 @@ const Navigation = (loggedUser) =>  {
                     <Link to="/">Home</Link>
                 </div>
                 <div className="cartAndLog">
-                    <Link to="/logIn">Log In</Link>
+                    <Link to="/logIn"><p className="testNullLogIn">Log In</p></Link>
                 </div>
             </nav>
         )
@@ -42,14 +42,13 @@ else if(loggedUser.loggedUser.category == "CLIENT") {
                 <img src={logoImage} alt=""/>
             </div>
             <div className='navLinks'>
-                <Link to="/">Home</Link>
-                <Link to="/menus">Menu</Link>
-                <Link to="/howToOrder">How to order</Link>
-                <Link to="/reservation">Reservation</Link>
-                <Link to="/contacts">Contacts</Link>
+                <Link to="/"><p className="testEmployeeHome">Home</p></Link>
+                <Link to="/menus"><p className="testEmployeeMenus">Menu</p></Link>
+                <Link to="/howToOrder"><p className="testEmployeeHowToOrder">How to order</p></Link>
+                <Link to="/reservation"><p className="testEmployeeReservation">Reservation</p></Link>
             </div>
             <div className="cartAndLog">
-                <Link to="/logOut">Log Out</Link>
+                <Link to="/logOut"><p className="testEmployeeLogOut">Log Out</p></Link>
                 <Link to="/cart">
                     <button className="cartButton">
                         Cart
@@ -66,14 +65,13 @@ else if(loggedUser.loggedUser.category == "WORKER") {
                 <img src={logoImage} alt=""/>
             </div>
             <div className='navLinks'>
-                <Link to="/">Home</Link>
-                <Link to="/menusEmployee">Meals</Link>
-                <Link to="/ordersEmployee">Orders</Link>
-                <Link to="/reservationsEmployee">Reservations</Link>
-                <Link to="/sales">Sales</Link>
+                <Link to="/"><p className="testWorkerHome">Home</p></Link>
+                <Link to="/menusEmployee"><p className="testWorkerMeals">Meals</p></Link>
+                <Link to="/ordersEmployee"><p className="testWorkerOrders">Orders</p></Link>
+                <Link to="/reservationsEmployee"><p className="testWorkerReservations">Reservations</p></Link>
             </div>
             <div className="cartAndLog">
-                <Link to="/logOut">Log Out</Link>
+                <Link to="/logOut"><p className="testWorkerLogOut">Log Out</p></Link>
             </div>
         </nav>
     )

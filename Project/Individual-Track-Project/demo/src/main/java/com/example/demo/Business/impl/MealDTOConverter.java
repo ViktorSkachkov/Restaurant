@@ -18,7 +18,7 @@ final class MealDTOConverter {
         return MealDTO.builder()
                 .id(Math.toIntExact(meal.getId()))
                 .category(categoryDTO)
-                .image(meal.getImage())
+                .image(meal.getImage().toString())
                 .name(meal.getName())
                 .description(meal.getDescription())
                 .weight(meal.getWeight())

@@ -15,7 +15,7 @@ const PastaMenus = (loggedUser) => {
                     }}>Go Back</button>
                 </div>
                 <center>
-                <h2 className="menuTitle">PASTA</h2>
+                <h2 className="menuTitle">PASTA</h2><br/>
                 <div className="menuList">
                         <PastaMenuList
 

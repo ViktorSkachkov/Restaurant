@@ -26,7 +26,7 @@ class GetUsersUseCaseImpTest {
 
     @Test
     void getUsers() {
-        Long symbol = Long.valueOf(1);
+       Long symbol = Long.valueOf(1);
         User user = User.builder()
                 .id(1L)
                 .firstName("Viktor")
@@ -41,7 +41,7 @@ class GetUsersUseCaseImpTest {
         when(userItemRepositoryMock.findAll()).thenReturn(List.of(user));
         GetUsersResponseDTO actualResult = getUsersUseCase.getUsers(symbol);
         UserDTO userDto = UserDTO.builder()
-                .id(1L)
+                .id(1)
                 .firstName("Viktor")
                 .lastName("Skachkov")
                 .username("dragonslayer")

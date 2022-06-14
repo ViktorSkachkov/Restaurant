@@ -47,9 +47,6 @@ const UpdateMeal = (loggedUser) => {
         getMeal();
 
     }, [])
-    /*useEffect(() => {
-        setDescription(meal.description);
-    })*/
     const onChangeDescription = event => {
         setDescription(event.target.value);
     }
@@ -57,14 +54,18 @@ const UpdateMeal = (loggedUser) => {
         setWeight(event.target.value);
     }
     const onChangePrice = event => {
-        //setPrice(event.target.value);
         setPrice(event.target.value);
     }
     const onChangeCategory = event => {
         setCategory(event.target.value);
     }
     const onChangeImage = event => {
-        setImage(event.target.value);
+        /*setImage(event.target.value);*/
+        var reader = new FileReader();
+        reader.onload = function (event) {
+            setImage(event.target.result);
+        };
+        reader.readAsDataURL(event.target.files[0]);
     }
     const onChangeName = event => {
         setName(event.target.value);
@@ -101,6 +102,7 @@ const UpdateMeal = (loggedUser) => {
         selectedCategory = (
             <select
                 className="Label"
+                name="category"
                 onChange={onChangeCategory}
             >
                 <option selected={true} value={"Pizza"}>Pizza</option>
@@ -114,6 +116,7 @@ const UpdateMeal = (loggedUser) => {
         selectedCategory = (
             <select
                 className="Label"
+                name="category"
                 onChange={onChangeCategory}
             >
                 <option value={"Pizza"}>Pizza</option>
@@ -127,6 +130,7 @@ const UpdateMeal = (loggedUser) => {
         selectedCategory = (
             <select
                 className="Label"
+                name="category"
                 onChange={onChangeCategory}
             >
                 <option value={"Pizza"}>Pizza</option>
@@ -140,6 +144,7 @@ const UpdateMeal = (loggedUser) => {
         selectedCategory = (
             <select
                 className="Label"
+                name="category"
                 onChange={onChangeCategory}
             >
                 <option value={"Pizza"}>Pizza</option>
@@ -161,18 +166,18 @@ const UpdateMeal = (loggedUser) => {
                 <center>
                     <h1>Update {meal.name}</h1><br/>
                     <h3>Old Image</h3>
-                    <img src="" alt=""/>
+                    <img src={meal.image} name="oldImage" height="400px" width="400px" alt=""/>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="image" className="formLabelImage">Image</label><br/>
-                        <input type="file" onChange={onChangeImage} className="Label"/><br/><br/><br/><br/>
+                        <input type="file" name="image" onChange={onChangeImage} className="Label"/><br/><br/><br/><br/>
                         <label htmlFor="name" className="formLabelName">Name</label><br/><br/>
-                        <input type="text" onChange={onChangeName} value={name} className="Label" /><br/><br/><br/><br/>
+                        <input type="text" name="name" onChange={onChangeName} value={name} className="Label" /><br/><br/><br/><br/>
                         <label htmlFor="username" className="formLabelDescription">Description</label><br/>
-                        <input type="text" onChange={onChangeDescription} value={description} className="Label" /><br/><br/><br/><br/>
+                        <input type="text" name="description" onChange={onChangeDescription} value={description} className="Label" /><br/><br/><br/><br/>
                         <label htmlFor="number" className="formLabelWeight">Weight</label><br/>
-                        <input type="number" onChange={onChangeWeight} value={weight} className="Label" /><br/><br/><br/><br/>
+                        <input type="number" name="weight" onChange={onChangeWeight} value={weight} className="Label" /><br/><br/><br/><br/>
                         <label htmlFor="number" className="formLabelPrice">Price</label><br/>
-                        <input type="number" onChange={onChangePrice} value={price} className="Label" /><br/><br/><br/><br/>
+                        <input type="number" name="price" onChange={onChangePrice} value={price} className="Label" /><br/><br/><br/><br/>
                         <label htmlFor="number" className="formLabelCategory">Category</label><br/>
                         {selectedCategory}<br/>
                         <br/><br/>

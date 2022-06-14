@@ -32,7 +32,7 @@ public class OrderItemDTOConverter {
         MealDTO mealDTO = MealDTO.builder()
                 .id(Math.toIntExact(order.getMeal().getId()))
                 .category(categoryDTO)
-                .image(order.getMeal().getImage())
+                .image(order.getMeal().getImage().toString())
                 .name(order.getMeal().getName())
                 .description(order.getMeal().getDescription())
                 .weight(order.getMeal().getWeight())
