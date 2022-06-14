@@ -9,9 +9,10 @@ build:
     - ./gradlew build -x test
     - ./gradlew.bat --stop
 
-test:
+image: gradle:alpine
+
+sonarqube-check:
   stage: test
-  script:
-    - cd Project/Individual-Track-Project/demo
-    - ./gradlew test
-    - ./gradlew.bat --stop
+  script: gradle sonarqube -Dsonar.qualitygate.wait=true
+  only:
+    - main
