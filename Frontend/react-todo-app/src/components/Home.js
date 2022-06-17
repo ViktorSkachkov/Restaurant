@@ -25,6 +25,8 @@ const ENDPOINT = "http://localhost:8080/ws";
 
 const Home = (props) => {
     const [stompClient, setStompClient] = useState(null);
+    const [websocketStop, setWebsocketStop] = useState([]);
+    let websocketCounter = 0
     const [msgToSend, setSendMessage] = useState("Enter your message here!");
 
     function startWebsockets() {
@@ -33,7 +35,8 @@ const Home = (props) => {
         stompClient.connect({}, () => {
             stompClient.subscribe('/topic/greetings', (data) => {
                 console.log(data);
-                onMessageReceived(data);
+                    onMessageReceived(data);
+
             });
         });
         setStompClient(stompClient);
@@ -47,7 +50,14 @@ const Home = (props) => {
     function onMessageReceived(data)
     {
         const result=  JSON.parse(data.body);
+        while(websocketCounter == 0) {
         alert(result.content)
+            websocketCounter = 1;
+        if(websocketCounter == 1) {
+            break;
+        }
+        }
+        websocketCounter = 0;
     };
 
 
@@ -66,8 +76,10 @@ const Home = (props) => {
     useEffect(() => {
         setUser(props.loggedUser);
         getUser();
-        startWebsockets();
     }, [props.loggedUser]);
+    useEffect(() => {
+        startWebsockets();
+    }, [websocketStop])
 
     async function getUser() {
         setUser(props.loggedUser);
@@ -98,6 +110,7 @@ const Home = (props) => {
         let code = [];
         let component;
         let part;
+        let websocketPart = (<></>);
     if(props.loggedUser != null) {
         if (props.loggedUser.category == "CLIENT") {
             for (let i = 0; i < categories.length; i++) {
@@ -140,6 +153,11 @@ const Home = (props) => {
             }
         }
     }
+    else {
+        websocketPart = (      <><p>Type your name here and send it, so the application can greet you!</p><br/>
+        <input onChange={(event) => setSendMessage(event.target.value)}></input><br/><br/>
+        <button className="sendName" onClick={sendMessage}>Send Your Name</button></>)
+    }
         return (
             <div className="mainBody">
                 <center>
@@ -161,9 +179,7 @@ const Home = (props) => {
                         {code}
                     </div>
                     <br></br>
-                    <p>Type your name here and send it, so the application can greet you!</p><br/>
-                    <input onChange={(event) => setSendMessage(event.target.value)}></input><br/><br/>
-                    <button className="sendName" onClick={sendMessage}>Send Your Name</button>
+                    {websocketPart}
                 </center>
                 <br/><br/>
             </div>

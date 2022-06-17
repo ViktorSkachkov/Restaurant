@@ -14,7 +14,10 @@ public class GreetingController {
     @SendTo("/topic/greetings")
     public Greeting greeting(HelloMessage message) throws Exception {
         Thread.sleep(1000);
-        return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "! Welcome to the website of Red Hot Pizza! We hope you like what we have to offer!");
+        Greeting returnGreeting = null;
+        returnGreeting = new Greeting("Hello, " + message.getName() + "! Welcome to the website of Red Hot Pizza! We hope you like what we have to offer!");
+        return returnGreeting;
+        //return "Hello " + message.getName();
     }
 
 }

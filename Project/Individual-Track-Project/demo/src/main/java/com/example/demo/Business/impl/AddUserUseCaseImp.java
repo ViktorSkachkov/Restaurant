@@ -34,10 +34,6 @@ public class AddUserUseCaseImp implements AddUserUseCase {
 
 
     private User saveNewUser(CreateUserRequestDTO requestDTO) {
-        //List<UserDTO> listOfUsers = getUsersUseCase.getUsers(0).getUsers();
-        /*List<User> listOfUsers = userRepository.findAll();
-        int lastIndex = listOfUsers.size() - 1;
-        Long index = Long.valueOf(listOfUsers.get(lastIndex).getId() + 1);*/
         User newUser = User.builder()
                 .category(requestDTO.getCategory())
                 .address(requestDTO.getAddress())
@@ -55,6 +51,5 @@ public class AddUserUseCaseImp implements AddUserUseCase {
                 .build();
         userRoleRepository.save(newUserRole);
         return u;
-       //return userRepository.save(newUser);
     }
 }

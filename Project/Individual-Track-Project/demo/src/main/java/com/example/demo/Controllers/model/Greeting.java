@@ -7,6 +7,7 @@ public class Greeting {
     }
 
     public Greeting(String content) {
+        this.content = "";
         this.content = content;
     }
 

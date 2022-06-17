@@ -4,9 +4,31 @@ services:
   build: ./Frontend/react-todo-app
   container_name: Frontend-Side
   ports: 
-  - 3000:3000
+  - '3000:3000'
  api:
-  build: ./Project/Individual-Track-Project/demo
+  build: ./Backend
   container_name: Backend-Side
-  ports: 
-  - 8080:8080
+  networks:
+  - pizzamysql
+  ports:
+  - '8080:8080'
+  depends_on:
+  - dbpizza
+ dbpizza:
+  image: mysql:8.0.28
+  container_name: MYSQL_DATABASE
+  command: mysqld --default-authentication-plugin=mysql_native_password
+  networks:
+  - pizzamysql
+  environment:
+   MYSQL_ROOT_PASSWORD: ultralisk66
+   MYSQL_DATABASE: pizzeria
+  ports:
+  - '3306:3306'
+  expose:
+  - '3306'
+  volumes:
+  - "./mysql-dump:/docker-entrypoint-initdb.d:rw"
+
+networks:
+ pizzamysql:

@@ -27,14 +27,4 @@ final class GetMealsUseCaseImp implements GetMealsUseCase {
                 .meals(mealItems)
                 .build();
     }
-   /* private OrderRepository odh = new OrderRepository();
-    @Override
-    public List<MealDTO> GetMeals() {
-        return this.odh.GetMeals();
-    }
-
-    @Override
-    public GetMealsResponseDTO getMeals() {
-        return null;
-    }*/
 }
